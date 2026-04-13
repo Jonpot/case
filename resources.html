@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code, Software, Resources | Community for Autonomous Scientific Experimentation</title>
+  <meta name="description" content="CASE resources for autonomous discovery software, including DataFed, CAMLink, gpCAM, ESCALATE, mystic, Summit, ART, and workshop materials.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    .page-shell {
+      padding-top: calc(var(--sp-24) + var(--sp-12));
+      background: var(--color-bg);
+    }
+
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      padding-block: var(--sp-14) var(--sp-20);
+      border-bottom: 1px solid var(--color-border);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(15, 118, 110, 0.08), transparent 24rem),
+        radial-gradient(circle at 90% 12%, rgba(245, 158, 11, 0.08), transparent 22rem),
+        linear-gradient(180deg, #f8fbfb 0%, #f8f9fa 42%, #ffffff 100%);
+    }
+
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(15, 118, 110, 0.06), transparent 14rem),
+        radial-gradient(circle at 86% 18%, rgba(59, 130, 246, 0.10), transparent 18rem),
+        radial-gradient(circle at 64% 74%, rgba(245, 158, 11, 0.10), transparent 14rem);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      max-width: 72ch;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 5.2vw, 5rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      margin-bottom: var(--sp-5);
+      max-width: 10ch;
+    }
+
+    .hero-copy {
+      max-width: 60ch;
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+
+    .hero-copy strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      margin-top: var(--sp-8);
+      list-style: none;
+    }
+
+    .hero-chips li {
+      padding: 0.72rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 118, 110, 0.14);
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .hero-tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+      margin-top: var(--sp-8);
+      list-style: none;
+    }
+
+    .hero-tool-list li {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 118, 110, 0.18);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+
+    .resource-section {
+      padding-block: var(--sp-24);
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: var(--sp-5);
+      margin-top: var(--sp-10);
+      align-items: stretch;
+    }
+
+    /* ── Card base ── */
+    .resource-card {
+      grid-column: span 4;
+      display: flex;
+      flex-direction: column;
+      border-radius: 1rem;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+    }
+
+    .resource-card:hover {
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.09);
+      transform: translateY(-3px);
+    }
+
+    .resource-card--wide   { grid-column: span 6; }
+    .resource-card--feature {
+      grid-column: span 8;
+      flex-direction: row;
+    }
+
+    /* ── Image area ── */
+    .resource-card__image {
+      background: var(--tool-accent-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-6);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* Vertical cards: fixed-height image on top */
+    .resource-card:not(.resource-card--feature) .resource-card__image {
+      height: 10rem;
+    }
+
+    /* Feature card: image fills the left side */
+    .resource-card--feature .resource-card__image {
+      width: 42%;
+    }
+
+    .resource-card__image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      /* Blend white backgrounds away — logo/diagram images look clean against the tinted bg */
+      mix-blend-mode: multiply;
+    }
+
+    /* Dark screenshot (CAMLink): skip multiply, use cover */
+    .tool-camlink .resource-card__image {
+      padding: 0;
+    }
+    .tool-camlink .resource-card__image img {
+      mix-blend-mode: normal;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── Card body ── */
+    .resource-card__body {
+      padding: var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .resource-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--sp-3);
+      color: var(--tool-accent);
+    }
+
+    .resource-card--feature .resource-card__title {
+      font-size: clamp(var(--text-2xl), 2.8vw, var(--text-4xl));
+      letter-spacing: -0.04em;
+    }
+
+    .resource-card__desc {
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .resource-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      margin-top: var(--sp-6);
+      padding-top: var(--sp-4);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .resource-card__link {
+      color: var(--tool-accent);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .resource-card__link:hover { text-decoration: underline; }
+
+    .resource-card__hint {
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-subtle);
+    }
+
+    /* ── Tool color tokens ── */
+    .tool-datafed  { --tool-accent: #0f766e; --tool-accent-bg: rgba(15, 118, 110, 0.09); }
+    .tool-camlink  { --tool-accent: #0369a1; --tool-accent-bg: #0f172a; }
+    .tool-gpcam    { --tool-accent: #5b21b6; --tool-accent-bg: rgba(91, 33, 182, 0.08); }
+    .tool-escalate { --tool-accent: #92400e; --tool-accent-bg: rgba(146, 64, 14, 0.08); }
+    .tool-mystic   { --tool-accent: #9d174d; --tool-accent-bg: rgba(157, 23, 77, 0.07); }
+    .tool-summit   { --tool-accent: #166534; --tool-accent-bg: rgba(22, 101, 52, 0.08); }
+    .tool-art      { --tool-accent: #991b1b; --tool-accent-bg: rgba(153, 27, 27, 0.07); }
+
+    .resource-section--materials {
+      background:
+        radial-gradient(circle at 10% 14%, rgba(15, 118, 110, 0.06), transparent 20rem),
+        linear-gradient(180deg, rgba(248, 249, 250, 0.92), rgba(255, 255, 255, 1));
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .materials-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+      gap: var(--sp-8);
+      align-items: stretch;
+      margin-top: var(--sp-10);
+    }
+
+    .material-card {
+      padding: var(--sp-6);
+      border-radius: 1rem;
+      border: 1px solid rgba(15, 118, 110, 0.14);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    .material-card__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-5);
+    }
+
+    .material-card__icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(245, 158, 11, 0.14));
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .material-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: var(--sp-2);
+    }
+
+    .material-card__meta {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .material-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      margin-top: var(--sp-6);
+    }
+
+    .material-note {
+      padding: var(--sp-6);
+      border-radius: 1rem;
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      background:
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.10), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 251, 250, 0.96));
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+
+    .material-note p {
+      color: var(--color-text-muted);
+      line-height: 1.75;
+    }
+
+    .material-note__kicker {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    .pdf-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.7rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.08);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    .pdf-pill img {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .contact-bar {
+      margin-top: var(--sp-6);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .contact-bar a {
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .materials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resources-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .resource-card,
+      .resource-card--wide,
+      .resource-card--feature {
+        grid-column: auto;
+      }
+
+      .resource-card--feature {
+        flex-direction: column;
+      }
+
+      .resource-card--feature .resource-card__image {
+        width: 100%;
+        height: 12rem;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        max-width: 100%;
+      }
+    }
+
+    /* ── Hero gaussian viz ── */
+    .hero-viz {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 55%;
+      pointer-events: none;
+      display: flex;
+      align-items: flex-end;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 22%);
+      mask-image: linear-gradient(to right, transparent 0%, black 22%);
+      opacity: 0;
+      animation: hero-viz-in 1s 0.3s ease forwards;
+    }
+
+    .hero-viz svg {
+      width: 100%;
+      height: 85%;
+    }
+
+    @keyframes hero-viz-in { to { opacity: 1; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-viz { opacity: 1; animation: none; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-viz { width: 100%; opacity: 0.35; animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav is-scrolled" aria-label="Site navigation">
+    <a class="nav-logo" href="index.html">CASE</a>
+    <ul class="nav-links" role="list">
+      <li><a href="what-is-case.html">What is CASE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="network.html">Network</a></li>
+      <li><a href="committee.html">Organizing Committee</a></li>
+      <li><a href="resources.html" aria-current="page">Resources</a></li>
+      <li><a href="signup.html" class="nav-cta">Join →</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="container">
+        <div class="hero-grid">
+          <p class="section-label">Code, Software, Resources</p>
+          <h1 class="hero-title">Code, software &amp; other resources</h1>
+          <p class="hero-copy">
+            A collection of open-source tools and workshop materials for autonomous scientific
+            experimentation, maintained and curated by the CASE community.
+          </p>
+          <ul class="hero-tool-list" role="list">
+            <li>DataFed</li>
+            <li>CAMLink</li>
+            <li>gpCAM</li>
+            <li>ESCALATE</li>
+            <li>mystic</li>
+            <li>Summit</li>
+            <li>ART</li>
+            <li>Workshop report</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section">
+      <div class="container">
+        <p class="section-label">Software tools</p>
+        <h2 class="section-heading">Tools and software</h2>
+
+        <div class="resources-grid">
+
+          <!-- Row 1: gpCAM (4) + ESCALATE (4) + mystic (4) -->
+          <article class="resource-card tool-gpcam">
+            <div class="resource-card__image">
+              <img src="assets/resources/gpCAM.png" alt="gpCAM logo — Gaussian process bell curve">
+            </div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">gpCAM</h3>
+              <p class="resource-card__desc">
+                Flexible, HPC-ready, user-friendly Gaussian-process-based autonomous discovery.
+              </p>
+              <div class="resource-card__footer">
+                <span class="resource-card__hint">Project site</span>
+                <a class="resource-card__link" href="http://gpcam.lbl.gov/" target="_blank" rel="noreferrer">Open resource &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="resource-card tool-escalate">
+            <div class="resource-card__image">
+              <img src="assets/resources/ESCALATE.png" alt="ESCALATE — periodic-table style logo">
+            </div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">ESCALATE</h3>
+              <p class="resource-card__desc">
+                Experiment Specification, Capture and Laboratory Automation Technology.
+              </p>
+              <div class="resource-card__footer">
+                <span class="resource-card__hint">GitHub</span>
+                <a class="resource-card__link" href="https://github.com/darkreactions/ESCALATE" target="_blank" rel="noreferrer">Open repository &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="resource-card tool-mystic">
+            <div class="resource-card__image">
+              <img src="assets/resources/mystic.png" alt="mystic — 3D optimization surface plots">
+            </div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">mystic</h3>
+              <p class="resource-card__desc">
+                A framework of optimization algorithms for robust, flexible solution of hard optimization problems.
+              </p>
+              <div class="resource-card__footer">
+                <span class="resource-card__hint">GitHub</span>
+                <a class="resource-card__link" href="https://github.com/uqfoundation/mystic" target="_blank" rel="noreferrer">Open repository &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 2: DataFed feature (8) + CAMLink (4) -->
+          <article class="resource-card resource-card--feature tool-datafed">
+            <div class="resource-card__image">
+              <img src="assets/resources/DataFed.png" alt="DataFed architecture — federated data backbone diagram">
+            </div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">DataFed</h3>
+              <p class="resource-card__desc">
+                A scientific data management system for seamless cross-facility and cross-institutional data collaboration.
+              </p>
+              <div class="resource-card__footer">
+                <span class="resource-card__hint">ORNL resource</span>
+                <a class="resource-card__link" href="https://www.olcf.ornl.gov/olcf-resources/rd-project/datafed-a-federated-scientific-data-management-system/" target="_blank" rel="noreferrer">Open resource &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="resource-card tool-camlink">
+            <div class="resource-card__image">
+              <img src="assets/resources/CAMLink.png" alt="CAMLink software interface screenshot">
+            </div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">CAMLink</h3>
+              <p class="resource-card__desc">
+                API-level support for requesting communication paths between disparate experimental services.
+              </p>
+              <div class="resource-card__footer">
+                <span class="resource-card__hint">CAMERA project</span>
+                <a class="resource-card__link" href="https://camera.lbl.gov/projects/cam-link" target="_blank" rel="noreferrer">Open resource &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 3: Summit (6) + ART (6) -->
+          <article class="resource-card resource-card--wide tool-summit">
+            <div class="resource-card__image">
+              <img src="assets/resources/Summit.png" alt="Summit — iterative ML and experiments workflow diagram">
+            </div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">Summit</h3>
+              <p class="resource-card__desc">
+                A Python package for machine-learning-driven optimization of chemical reactions.
+              </p>
+              <div class="resource-card__footer">
+                <span class="resource-card__hint">GitHub</span>
+                <a class="resource-card__link" href="https://github.com/sustainable-processes/summit" target="_blank" rel="noreferrer">Open repository &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="resource-card resource-card--wide tool-art">
+            <div class="resource-card__image">
+              <img src="assets/resources/ART.png" alt="ART — Automated Recommendation Tool workflow illustration">
+            </div>
+            <div class="resource-card__body">
+              <h3 class="resource-card__title">ART</h3>
+              <p class="resource-card__desc">
+                The Automated Recommendation Tool uses machine learning and probabilistic modeling to guide synthetic biology.
+              </p>
+              <div class="resource-card__footer">
+                <span class="resource-card__hint">Project site</span>
+                <a class="resource-card__link" href="https://sites.google.com/lbl.gov/art" target="_blank" rel="noreferrer">Open site &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-section resource-section--materials">
+      <div class="container">
+        <p class="section-label">Workshop material</p>
+        <h2 class="section-heading">Workshop report &amp; materials</h2>
+
+        <div class="materials-grid">
+          <article class="material-card">
+            <div class="material-card__header">
+              <div>
+                <p class="material-note__kicker">Workshop report</p>
+                <h3 class="material-card__title">DOE / CAMERA Autonomous Discovery Workshop Report</h3>
+                <p class="material-card__meta">
+                  The formal report from the April 2021 workshop that motivated CASE.
+                </p>
+              </div>
+              <div class="material-card__icon" aria-hidden="true">
+                <img src="assets/resources/drive-32.png" alt="">
+              </div>
+            </div>
+
+            <div class="pdf-pill">
+              <span>PDF &mdash; DOE_AD_CAMERA_Workshop_Report.pdf</span>
+            </div>
+
+            <div class="material-links">
+              <a class="btn btn--primary" href="https://drive.google.com/file/d/13u2uZMN9wENQxoAsb9c0F4yea19bpNgH/view" target="_blank" rel="noreferrer">Open report</a>
+              <a class="btn btn--ghost" href="https://drive.google.com/uc?id=13u2uZMN9wENQxoAsb9c0F4yea19bpNgH&amp;export=download" target="_blank" rel="noreferrer">Download PDF</a>
+            </div>
+          </article>
+
+          <aside class="material-note">
+            <p class="material-note__kicker">Workshop archive</p>
+            <p>
+              More material from the workshop can be found at
+              <a href="https://autonomous-discovery.lbl.gov/material" target="_blank" rel="noreferrer">autonomous-discovery.lbl.gov/material</a>.
+            </p>
+            <p class="contact-bar">
+              For questions contact <a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a>.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <span class="footer-logo">CASE</span>
+        <p class="footer-tagline">
+          Community for Autonomous Scientific Experimentation<br>
+          Hosted at Lawrence Berkeley National Laboratory
+        </p>
+        <p class="footer-meta">
+          For questions: <a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul role="list">
+          <li><a href="what-is-case.html">What is CASE</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="network.html">Network</a></li>
+          <li><a href="committee.html">Organizing Committee</a></li>
+          <li><a href="resources.html" aria-current="page">Code &amp; Resources</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul role="list">
+          <li><a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

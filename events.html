@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | Community for Autonomous Scientific Experimentation</title>
+  <meta name="description" content="CASE event recordings, seminar series, and workshop materials for autonomous scientific experimentation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    .page-shell {
+      padding-top: calc(var(--sp-24) + var(--sp-12));
+      background: var(--color-bg);
+    }
+
+    /* ── Hero ── */
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      padding-block: var(--sp-16) var(--sp-20);
+      border-bottom: 1px solid var(--color-border);
+      background:
+        radial-gradient(circle at 14% 12%, rgba(15, 118, 110, 0.07), transparent 20rem),
+        radial-gradient(circle at 88% 22%, rgba(14, 165, 233, 0.06), transparent 18rem),
+        linear-gradient(180deg, #f8fcfc 0%, #f8f9fa 100%);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 5.4vw, 5rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      margin-top: var(--sp-4);
+      margin-bottom: var(--sp-5);
+      max-width: 16ch;
+    }
+
+    .hero-copy {
+      max-width: 62ch;
+      font-size: var(--text-lg);
+      line-height: 1.75;
+      color: var(--color-text-muted);
+    }
+
+    .hero-copy strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    .upcoming-note {
+      margin-top: var(--sp-8);
+      font-size: var(--text-base);
+      color: var(--color-text-subtle);
+      font-style: italic;
+    }
+
+    /* ── Past events ── */
+    .events-section {
+      padding-block: var(--sp-22);
+    }
+
+    .events-section + .events-section {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .events-section--surface {
+      background: var(--color-surface);
+    }
+
+    .section-intro {
+      max-width: 64ch;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-top: var(--sp-3);
+      margin-bottom: var(--sp-10);
+    }
+
+    /* ── Video grid ── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--sp-6);
+    }
+
+    .video-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .video-card__embed {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #0f172a;
+    }
+
+    .video-card__embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-card__body {
+      padding: var(--sp-5) var(--sp-5) var(--sp-5);
+    }
+
+    .video-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--color-text);
+    }
+
+    /* ── Seminar resources ── */
+    .resources-block {
+      margin-top: var(--sp-14);
+      padding: var(--sp-8);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .resources-block h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      line-height: 1.25;
+      margin-bottom: var(--sp-3);
+    }
+
+    .resources-block p {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-5);
+    }
+
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2) var(--sp-5);
+      list-style: none;
+    }
+
+    .link-list li {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+
+    .link-list li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    .link-list a {
+      color: var(--color-accent);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: var(--text-sm);
+    }
+
+    .link-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Drive recordings ── */
+    .drive-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+
+    .drive-card {
+      padding: var(--sp-5);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 0.875rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+
+    .drive-card__header {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-3);
+    }
+
+    .drive-card__header img {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+
+    .drive-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .drive-card a {
+      color: var(--color-accent);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .drive-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Workshop section ── */
+    .workshop-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.9fr);
+      gap: var(--sp-8);
+      align-items: start;
+      margin-top: var(--sp-8);
+    }
+
+    .workshop-card {
+      padding: var(--sp-7);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .workshop-card h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      margin-bottom: var(--sp-3);
+    }
+
+    .workshop-card p {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-5);
+    }
+
+    .workshop-card .link-list {
+      flex-direction: column;
+    }
+
+    @media (max-width: 900px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .drive-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .workshop-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .drive-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav is-scrolled" aria-label="Site navigation">
+    <a class="nav-logo" href="index.html">CASE</a>
+    <ul class="nav-links" role="list">
+      <li><a href="what-is-case.html">What is CASE</a></li>
+      <li><a href="events.html" aria-current="page">Events</a></li>
+      <li><a href="network.html">Network</a></li>
+      <li><a href="committee.html">Organizing Committee</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a class="nav-cta" href="signup.html">Join &rarr;</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="container">
+        <p class="section-label">Events</p>
+        <h1 class="hero-title">Talks, recordings &amp; workshop material</h1>
+        <p class="hero-copy">
+          CASE hosts <strong>seminars and workshops</strong> on autonomous discovery,
+          self-driving laboratories, and AI-guided experimentation. Past sessions are
+          archived below with recordings and supporting materials.
+        </p>
+        <p class="upcoming-note">No upcoming events are currently scheduled; updates will be posted here when available.</p>
+      </div>
+    </section>
+
+    <!-- Past event recordings -->
+    <section class="events-section events-section--surface">
+      <div class="container">
+        <p class="section-label">Past Events</p>
+        <h2 class="section-heading">Recorded seminars</h2>
+        <p class="section-intro">
+          The CASE seminar series covers methods, case studies, and tools for autonomous scientific
+          experimentation. Recordings of past sessions are available below.
+        </p>
+
+        <div class="video-grid">
+          <article class="video-card">
+            <div class="video-card__embed">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/OyRwwe-K-nY"
+                title="CASE Seminar: Autonomous Experimentation 101"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-card__body">
+              <div class="video-card__title">CASE Seminar: Autonomous Experimentation 101</div>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-card__embed">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/ixNeONyvYNE"
+                title="CASE Seminar: Autonomous Experimentation 101 - X-Ray and Neutron Scattering"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-card__body">
+              <div class="video-card__title">CASE Seminar: Autonomous Experimentation 101; X-Ray and Neutron Scattering</div>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-card__embed">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/kxg8G27sPlk"
+                title="CASE Seminar: Autonomous Experimentation 101 - Microscopy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-card__body">
+              <div class="video-card__title">CASE Seminar: Autonomous Experimentation 101; Microscopy</div>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-card__embed">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/xZDlbIw0ZHk"
+                title="CASE Recording Oct 31 2023"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-card__body">
+              <div class="video-card__title">CASE Recording; Oct 31 2023</div>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-card__embed">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/0F6F2k-U36A"
+                title="CASE Seminar Sep 12 2023"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-card__body">
+              <div class="video-card__title">CASE Seminar; Sep 12 2023</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="resources-block">
+          <h3>Supporting materials; Autonomous Experimentation 101</h3>
+          <ul class="link-list" role="list">
+            <li><a href="https://www.nature.com/articles/s41524-022-00777-9" target="_blank" rel="noreferrer">Nature paper</a></li>
+            <li><a href="https://drive.google.com/file/d/1iNUdHSzEiEYC7Pie_v9osq5MfkKzSspA/view?usp=share_link" target="_blank" rel="noreferrer">Aaron Michelson's Follow-along Notebook for Microscopy</a></li>
+            <li><a href="https://drive.google.com/file/d/1JCiVbIY1p4CL1l5nbWZBYqV-61tF5sdW/view?usp=share_link" target="_blank" rel="noreferrer">Presentation slides</a></li>
+            <li><a href="https://drive.google.com/file/d/1Bndp8o4sqinpkg4kjmnykogrIoA9Tppv/view?usp=share_link" target="_blank" rel="noreferrer">Dataset 1</a></li>
+            <li><a href="https://drive.google.com/file/d/1Ch-COu_L5JNLEdxhPT2yt4DP-r_ML50X/view?usp=share_link" target="_blank" rel="noreferrer">Dataset 2</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Drive-only recordings and workshop -->
+    <section class="events-section">
+      <div class="container">
+        <p class="section-label">Additional recordings</p>
+        <h2 class="section-heading">Drive-hosted sessions</h2>
+        <p class="section-intro">
+          These sessions are archived on Google Drive.
+        </p>
+
+        <div class="drive-grid">
+          <div class="drive-card">
+            <div class="drive-card__header">
+              <img src="assets/resources/drive-32.png" alt="">
+              <div class="drive-card__title">Learning from 1M Automated Experiments</div>
+            </div>
+            <a href="https://drive.google.com/file/d/1dXv69yFxl4bX5h8bIr0qSu-NL8l9JBb5/view" target="_blank" rel="noreferrer">Open recording &rarr;</a>
+          </div>
+          <div class="drive-card">
+            <div class="drive-card__header">
+              <img src="assets/resources/drive-32.png" alt="">
+              <div class="drive-card__title">Autonomous X-Ray Scattering Applied to Directed Self-Assembly</div>
+            </div>
+            <a href="https://drive.google.com/file/d/1nbhr3iuWP4znO8nyOGe-jZ5wB8ydwrmV/view" target="_blank" rel="noreferrer">Open recording &rarr;</a>
+          </div>
+          <div class="drive-card">
+            <div class="drive-card__header">
+              <img src="assets/resources/drive-32.png" alt="">
+              <div class="drive-card__title">Identifying Local Structure with Scanning Tunneling Microscopy</div>
+            </div>
+            <a href="https://drive.google.com/file/d/1klZ2fpDyDWNjDhuHZGVXfMQo-ofbaRsI/view" target="_blank" rel="noreferrer">Open recording &rarr;</a>
+          </div>
+        </div>
+
+        <div class="workshop-row">
+          <div class="workshop-card">
+            <h3>Workshop materials and report</h3>
+            <p>
+              Materials from the CAMERA Autonomous Discovery workshop, including the full
+              workshop report PDF.
+            </p>
+            <ul class="link-list" role="list">
+              <li><a href="https://autonomous-discovery.lbl.gov/material" target="_blank" rel="noreferrer">Workshop materials archive</a></li>
+              <li><a href="https://drive.google.com/file/d/13u2uZMN9wENQxoAsb9c0F4yea19bpNgH/view" target="_blank" rel="noreferrer">Workshop report PDF</a></li>
+            </ul>
+          </div>
+
+          <div class="workshop-card">
+            <h3>Questions?</h3>
+            <p>
+              For questions about CASE events, contact the organizing committee.
+            </p>
+            <a href="mailto:MarcusNoack@lbl.gov" class="btn btn--ghost">MarcusNoack@lbl.gov</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <span class="footer-logo">CASE</span>
+        <p class="footer-tagline">
+          Community for Autonomous Scientific Experimentation<br>
+          Hosted at Lawrence Berkeley National Laboratory
+        </p>
+        <p class="footer-meta">
+          For questions: <a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul role="list">
+          <li><a href="what-is-case.html">What is CASE</a></li>
+          <li><a href="events.html" aria-current="page">Events</a></li>
+          <li><a href="network.html">Network</a></li>
+          <li><a href="committee.html">Organizing Committee</a></li>
+          <li><a href="resources.html">Code &amp; Resources</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul role="list">
+          <li><a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

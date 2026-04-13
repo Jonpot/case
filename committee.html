@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizing Committee | Community for Autonomous Scientific Experimentation</title>
+  <meta name="description" content="The organizing committee for CASE, including current members, affiliations, bios, and organizer contact information.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    .page-shell {
+      padding-top: calc(var(--sp-24) + var(--sp-12));
+      background: var(--color-bg);
+    }
+
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      padding-block: var(--sp-16) var(--sp-20);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(15, 118, 110, 0.08), transparent 14rem),
+        radial-gradient(circle at 90% 14%, rgba(59, 130, 246, 0.08), transparent 15rem),
+        radial-gradient(circle at 86% 84%, rgba(245, 158, 11, 0.07), transparent 12rem),
+        linear-gradient(180deg, #fbfdfd 0%, #f5fbfb 100%);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(15, 118, 110, 0.04), transparent 14rem),
+        linear-gradient(90deg, transparent 0%, rgba(15, 118, 110, 0.04) 50%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(22rem, 1fr);
+      gap: var(--sp-14);
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--sp-4);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 5.6vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      margin-bottom: var(--sp-5);
+      max-width: 10ch;
+    }
+
+    .hero-copy {
+      max-width: 60ch;
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+
+    .hero-copy strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      margin-top: var(--sp-8);
+    }
+
+    .hero-actions .btn {
+      padding: 0.9rem 1.15rem;
+      font-size: var(--text-sm);
+    }
+
+    .hero-card {
+      background:
+        radial-gradient(circle at top right, rgba(15, 118, 110, 0.1), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.1), transparent 34%),
+        rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(15, 118, 110, 0.16);
+      border-radius: 1.4rem;
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.07);
+      padding: var(--sp-8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .hero-card__label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--sp-4);
+    }
+
+    .contact-stack {
+      display: grid;
+      gap: var(--sp-3);
+      margin-top: var(--sp-5);
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--sp-4);
+      align-items: baseline;
+      padding: var(--sp-3) 0;
+      border-bottom: 1px solid rgba(15, 118, 110, 0.08);
+    }
+
+    .contact-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .contact-item__name {
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.35;
+    }
+
+    .contact-item__email {
+      color: var(--color-accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      word-break: break-word;
+      white-space: nowrap;
+      font-size: var(--text-sm);
+    }
+
+    .hero-note {
+      margin-top: var(--sp-6);
+      padding: var(--sp-4) var(--sp-5);
+      border-radius: 1rem;
+      background: rgba(15, 118, 110, 0.06);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      font-size: var(--text-sm);
+    }
+
+    .content-section {
+      position: relative;
+      z-index: 1;
+      padding-block: var(--sp-22);
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: var(--sp-8);
+      margin-bottom: var(--sp-10);
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 3.1vw, 3rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-top: var(--sp-2);
+    }
+
+    .section-copy {
+      max-width: 58ch;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      font-size: var(--text-base);
+    }
+
+    .committee-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--sp-6);
+      align-items: stretch;
+    }
+
+    .member-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(249, 252, 252, 0.96));
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      border-radius: 1.35rem;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.05);
+    }
+
+    .member-card__media {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 22%, rgba(15, 118, 110, 0.24), transparent 34%),
+        radial-gradient(circle at 82% 20%, rgba(59, 130, 246, 0.2), transparent 26%),
+        linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(245, 158, 11, 0.08));
+    }
+
+    .member-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .member-card__media--placeholder {
+      display: grid;
+      place-items: end start;
+      padding: var(--sp-6);
+    }
+
+    .member-card__monogram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4.25rem;
+      height: 4.25rem;
+      border-radius: 999px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+      border: 1px solid rgba(15, 118, 110, 0.12);
+    }
+
+    .member-card__body {
+      display: grid;
+      gap: var(--sp-4);
+      padding: var(--sp-6);
+      flex: 1;
+    }
+
+    .member-name {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 2vw, 1.85rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .member-meta {
+      display: grid;
+      gap: var(--sp-2);
+    }
+
+    .member-role {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    .member-affiliation {
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      font-size: var(--text-sm);
+    }
+
+    .member-bio {
+      color: var(--color-text-muted);
+      line-height: 1.78;
+      font-size: var(--text-sm);
+    }
+
+    .member-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      margin-top: auto;
+      padding-top: var(--sp-2);
+    }
+
+    .member-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 118, 110, 0.14);
+      background: rgba(15, 118, 110, 0.06);
+      color: var(--color-text);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .member-email {
+      color: var(--color-accent);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      word-break: break-word;
+    }
+
+    .member-card--accent-1 .member-card__media { background:
+      radial-gradient(circle at 16% 18%, rgba(15, 118, 110, 0.28), transparent 32%),
+      linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(59, 130, 246, 0.08));
+    }
+    .member-card--accent-2 .member-card__media { background:
+      radial-gradient(circle at 78% 20%, rgba(245, 158, 11, 0.24), transparent 28%),
+      linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(15, 118, 110, 0.1));
+    }
+    .member-card--accent-3 .member-card__media { background:
+      radial-gradient(circle at 18% 20%, rgba(59, 130, 246, 0.23), transparent 30%),
+      linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(15, 118, 110, 0.1));
+    }
+    .member-card--accent-4 .member-card__media { background:
+      radial-gradient(circle at 80% 18%, rgba(236, 72, 153, 0.18), transparent 28%),
+      linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(15, 118, 110, 0.08));
+    }
+
+    .past-section {
+      position: relative;
+      z-index: 1;
+      padding-block: var(--sp-20);
+      background: linear-gradient(180deg, #f9fbfb 0%, #ffffff 100%);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .past-card {
+      margin-top: var(--sp-8);
+      padding: var(--sp-7);
+      border-radius: 1.25rem;
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .past-card h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      margin-bottom: var(--sp-4);
+    }
+
+    .past-card p {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-4);
+    }
+
+    .past-list {
+      list-style: square;
+      padding-left: 1.25rem;
+      color: var(--color-text-muted);
+      display: grid;
+      gap: var(--sp-2);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .committee-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page-shell {
+        padding-top: calc(var(--sp-24) + var(--sp-8));
+      }
+
+      .page-hero {
+        padding-block: var(--sp-12) var(--sp-16);
+      }
+
+      .hero-title {
+        max-width: none;
+      }
+
+      .contact-item {
+        grid-template-columns: 1fr;
+        gap: var(--sp-1);
+      }
+
+      .member-footer {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav is-scrolled" aria-label="Site navigation">
+    <a class="nav-logo" href="index.html">CASE</a>
+    <ul class="nav-links" role="list">
+      <li><a href="what-is-case.html">What is CASE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="network.html">Network</a></li>
+      <li><a href="committee.html" aria-current="page">Organizing Committee</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="signup.html" class="nav-cta">Join &rarr;</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-shell">
+    <section class="page-hero" aria-label="Organizing Committee introduction">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Organizing Committee</div>
+            <h1 class="hero-title">The people behind CASE</h1>
+            <div class="hero-copy">
+              The CASE organizing committee connects the community across national labs,
+              universities, industry, and independent contributors. This page translates the
+              current committee faithfully, with current contacts and bios for the people who
+              keep the network active.
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn--primary" href="mailto:MarcusNoack@lbl.gov">Contact organizers</a>
+              <a class="btn btn--ghost" href="#current-committee">View current committee</a>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <div class="hero-card__label">Reach the organizers</div>
+            <div class="hero-copy" style="font-size: var(--text-base); max-width: none;">
+              To engage beyond what is available on this website, please reach out to one of
+              the organizers listed below.
+            </div>
+            <div class="contact-stack" role="list">
+              <div class="contact-item" role="listitem">
+                <div class="contact-item__name">Marcus Noack <span style="color: var(--color-text-subtle); font-weight: 500;">(LBNL)</span></div>
+                <a class="contact-item__email" href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a>
+              </div>
+              <div class="contact-item" role="listitem">
+                <div class="contact-item__name">Aldair Gongora <span style="color: var(--color-text-subtle); font-weight: 500;">(LLNL)</span></div>
+                <a class="contact-item__email" href="mailto:gongora1@llnl.gov">gongora1@llnl.gov</a>
+              </div>
+              <div class="contact-item" role="listitem">
+                <div class="contact-item__name">Jose Lugo-Martinez <span style="color: var(--color-text-subtle); font-weight: 500;">(CMU)</span></div>
+                <a class="contact-item__email" href="mailto:jlugomar@andrew.cmu.edu">jlugomar@andrew.cmu.edu</a>
+              </div>
+              <div class="contact-item" role="listitem">
+                <div class="contact-item__name">Bappaditya Dey <span style="color: var(--color-text-subtle); font-weight: 500;">(IMEC)</span></div>
+                <a class="contact-item__email" href="mailto:bappaditya.dey@imec.be">bappaditya.dey@imec.be</a>
+              </div>
+              <div class="contact-item" role="listitem">
+                <div class="contact-item__name">Anudha Mittal <span style="color: var(--color-text-subtle); font-weight: 500;">(Indep.)</span></div>
+                <a class="contact-item__email" href="mailto:anudham@gmail.com">anudham@gmail.com</a>
+              </div>
+              <div class="contact-item" role="listitem">
+                <div class="contact-item__name">Jon Potter <span style="color: var(--color-text-subtle); font-weight: 500;">(POAI)</span></div>
+                <a class="contact-item__email" href="mailto:jpotter2@cs.cmu.edu">jpotter2@cs.cmu.edu</a>
+              </div>
+              <div class="contact-item" role="listitem">
+                <div class="contact-item__name">Peneeta Wojcik <span style="color: var(--color-text-subtle); font-weight: 500;">(CMU)</span></div>
+                <a class="contact-item__email" href="mailto:pawojcik@andrew.cmu.edu">pawojcik@andrew.cmu.edu</a>
+              </div>
+              <div class="contact-item" role="listitem">
+                <div class="contact-item__name">Sina Barazandeh <span style="color: var(--color-text-subtle); font-weight: 500;">(CMU)</span></div>
+                <a class="contact-item__email" href="mailto:sbarazan@andrew.cmu.edu">sbarazan@andrew.cmu.edu</a>
+              </div>
+            </div>
+            <div class="hero-note">
+              The current committee spans LBNL, LLNL, imec, CMU, POAI, and
+              independent contributors.
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="current-committee">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Current members</div>
+            <h2 class="section-title">Current organizing committee</h2>
+          </div>
+        </div>
+
+        <div class="committee-grid">
+          <article class="member-card member-card--accent-1">
+            <div class="member-card__media">
+              <img src="assets/committee/marcus-noack.png" alt="Marcus Noack portrait">
+            </div>
+            <div class="member-card__body">
+              <div class="member-meta">
+                <div class="member-role">Chair</div>
+                <div class="member-name">Marcus M. Noack</div>
+                <div class="member-affiliation">Research Scientist, Applied Math and Comp. Research Division, LBNL, USA</div>
+              </div>
+              <div class="member-bio">
+                Marcus Noack is the original founder of CASE. His background spans geophysics,
+                applied mathematics, function optimization, stochastic processes, dimensionality
+                reduction, and high-performance computing. At Berkeley Lab, his work supports
+                the autonomous experimentation community through practical software and support,
+                and his contributions earned him the 2022 Director's Award for Exceptional
+                Early-Career Achievements.
+              </div>
+              <div class="member-footer">
+                <span class="member-badge">Founder of CASE</span>
+                <a class="member-email" href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card member-card--accent-2">
+            <div class="member-card__media">
+              <img src="assets/committee/aldair-gongora.jpg" alt="Aldair Gongora portrait">
+            </div>
+            <div class="member-card__body">
+              <div class="member-meta">
+                <div class="member-role">Member</div>
+                <div class="member-name">Aldair E. Gongora</div>
+                <div class="member-affiliation">Staff Scientist, Lawrence Livermore National Laboratory, USA</div>
+              </div>
+              <div class="member-bio">
+                Aldair Gongora works in the Materials Engineering Division at LLNL. His research
+                sits at the confluence of machine learning, robotics, automation, and advanced
+                manufacturing, with a clear focus on accelerating scientific discovery by
+                designing and deploying modern research laboratories for materials, climate,
+                energy, life sciences, and sustainable manufacturing.
+              </div>
+              <div class="member-footer">
+                <span class="member-badge">Automated science</span>
+                <a class="member-email" href="mailto:gongora1@llnl.gov">gongora1@llnl.gov</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card member-card--accent-3">
+            <div class="member-card__media">
+              <img src="assets/committee/bappaditya-dey.jpg" alt="Bappaditya Dey portrait">
+            </div>
+            <div class="member-card__body">
+              <div class="member-meta">
+                <div class="member-role">Member</div>
+                <div class="member-name">Bappaditya Dey</div>
+                <div class="member-affiliation">Senior R&amp;D Engineer, imec, Belgium</div>
+              </div>
+              <div class="member-bio">
+                Bappaditya Dey develops and optimizes deep learning algorithms and architectures
+                for challenging industrial problems in EUV/EBEAM lithography and SEM metrology.
+                He also supports interdisciplinary collaboration with universities and research
+                teams across the globe while mentoring students working on research theses.
+              </div>
+              <div class="member-footer">
+                <span class="member-badge">Deep learning for patterning</span>
+                <a class="member-email" href="mailto:bappaditya.dey@imec.be">bappaditya.dey@imec.be</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card member-card--accent-4">
+            <div class="member-card__media">
+              <img src="assets/committee/jose-lugo-martinez.png" alt="Jose Lugo-Martinez portrait">
+            </div>
+            <div class="member-card__body">
+              <div class="member-meta">
+                <div class="member-role">Member</div>
+                <div class="member-name">Jose Lugo-Martinez</div>
+                <div class="member-affiliation">Assistant Professor, Carnegie Mellon University (CMU), USA</div>
+              </div>
+              <div class="member-bio">
+                Jose Lugo-Martinez is an Assistant Professor in the Computational Biology
+                Department at CMU and co-Director of the M.S. in Automated Science. His research
+                develops computational approaches that accelerate biomedical knowledge discovery
+                through automated and autonomous science, building directly on his training in
+                computer science and bioinformatics.
+              </div>
+              <div class="member-footer">
+                <span class="member-badge">Automated science</span>
+                <a class="member-email" href="mailto:jlugomar@andrew.cmu.edu">jlugomar@andrew.cmu.edu</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card member-card--accent-1">
+            <div class="member-card__media">
+              <img src="assets/committee/anudha-mittal.jpg" alt="Anudha Mittal portrait">
+            </div>
+            <div class="member-card__body">
+              <div class="member-meta">
+                <div class="member-role">Member</div>
+                <div class="member-name">Anudha Mittal</div>
+                <div class="member-affiliation">Various roles, Indep.</div>
+              </div>
+              <div class="member-bio">
+                Anudha Mittal holds a Ph.D. in chemical engineering from the University of
+                Minnesota and a B.S. in chemical engineering from the University of
+                Massachusetts, Amherst. She previously worked as a Senior Materials Engineer at
+                the Naval Nuclear Lab, then moved into data science and machine learning through
+                contract and consulting work.
+              </div>
+              <div class="member-footer">
+                <span class="member-badge">Independent contributor</span>
+                <a class="member-email" href="mailto:anudham@gmail.com">anudham@gmail.com</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card member-card--accent-2">
+            <div class="member-card__media">
+              <img src="assets/committee/jon-potter.jpg" alt="Jon Potter portrait">
+            </div>
+            <div class="member-card__body">
+              <div class="member-meta">
+                <div class="member-role">Member</div>
+                <div class="member-name">Jon Potter</div>
+                <div class="member-affiliation">Automation and Software Engineer, POAI</div>
+              </div>
+              <div class="member-bio">
+                Jonathan Potter builds laboratory automation infrastructure and computational
+                pipelines for clinical drug sensitivity assays. His work spans liquid-handler
+                orchestration and NMF/ALS-based analysis of patient drug response matrices, and
+                he is the author of Forge, an open-source visual pipeline builder for reproducible
+                data science workflows compatible with AI agents via MCP.
+              </div>
+              <div class="member-footer">
+                <span class="member-badge">Automated science</span>
+                <a class="member-email" href="mailto:jpotter2@cs.cmu.edu">jpotter2@cs.cmu.edu</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card member-card--accent-3">
+            <div class="member-card__media">
+              <img src="assets/committee/peneeta-wojcik.jpg" alt="Peneeta Wojcik portrait">
+            </div>
+            <div class="member-card__body">
+              <div class="member-meta">
+                <div class="member-role">Member</div>
+                <div class="member-name">Peneeta Wojcik</div>
+                <div class="member-affiliation">CPCB Ph.D. Student, Carnegie Mellon University (CMU), USA</div>
+              </div>
+              <div class="member-bio">
+                Peneeta Wojcik first became interested in laboratory automation while developing
+                protocols for liquid handlers such as the OpenTrons OT-2 and designing closed-loop
+                experiments in the integrated Thermo Fisher Momentum system. Her current research
+                focuses on automated design of DNA oligos and protein structures, alongside
+                frameworks for lab automation such as SiLA 2.
+              </div>
+              <div class="member-footer">
+                <span class="member-badge">Lab automation</span>
+                <a class="member-email" href="mailto:pawojcik@andrew.cmu.edu">pawojcik@andrew.cmu.edu</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card member-card--accent-4">
+            <div class="member-card__media">
+              <img src="assets/committee/sina-barazandeh.jpg" alt="Sina Barazandeh portrait">
+            </div>
+            <div class="member-card__body">
+              <div class="member-meta">
+                <div class="member-role">Member</div>
+                <div class="member-name">Sina Barazandeh</div>
+                <div class="member-affiliation">Ph.D. Student, Carnegie Mellon University (CMU), USA</div>
+              </div>
+              <div class="member-bio">
+                Sina Barazandeh works at the intersection of machine learning, reinforcement
+                learning, simulation, and foundation models, with a focus on advancing automated
+                science and cloud laboratories. He is particularly interested in applications such
+                as biomarker discovery, protein representation learning, and generative AI for
+                biological systems.
+              </div>
+              <div class="member-footer">
+                <span class="member-badge">Cloud labs + ML</span>
+                <a class="member-email" href="mailto:sbarazan@andrew.cmu.edu">sbarazan@andrew.cmu.edu</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="past-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Alumni</div>
+            <h2 class="section-title">Past organizing committee members</h2>
+          </div>
+        </div>
+
+        <div class="past-card">
+          <p>Thank you to our past organizing committee members:</p>
+          <ul class="past-list">
+            <li>Peter Beaucage, NIST</li>
+            <li>Kevin Yager, BNL</li>
+            <li>Kristofer Reyes, BNL</li>
+            <li>Sumner Harris, ORNL</li>
+            <li>Jeyan Thiyagalingam, STFC</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <span class="footer-logo">CASE</span>
+        <p class="footer-tagline">
+          Community for Autonomous Scientific Experimentation<br>
+          Hosted at Lawrence Berkeley National Laboratory
+        </p>
+        <p class="footer-meta">
+          For questions: <a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul role="list">
+          <li><a href="what-is-case.html">What is CASE</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="network.html">Network</a></li>
+          <li><a href="committee.html" aria-current="page">Organizing Committee</a></li>
+          <li><a href="resources.html">Code &amp; Resources</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul role="list">
+          <li><a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

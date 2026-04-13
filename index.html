@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CASE: Community for Autonomous Scientific Experimentation</title>
+  <meta name="description" content="A consortium connecting researchers building self-driving laboratories, AI-guided experiments, and autonomous discovery systems across national labs and universities.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* ── Home-page-specific styles ─────────────── */
+
+    #constellation {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Hero ─────────────────────────────────── */
+    .hero {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 var(--page-pad);
+      will-change: transform, opacity;
+    }
+
+    .hero-eyebrow {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--sp-6);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--sp-6);
+    }
+
+    .hero-title .line { display: block; }
+    .hero-title .key  { color: var(--color-accent); }
+    .hero-title .tail { color: var(--color-text); }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.4vw, 1.125rem);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 46ch;
+      margin-bottom: var(--sp-10);
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+    }
+
+    .hero-actions .btn {
+      font-size: var(--text-base);
+      padding: var(--sp-4) var(--sp-8);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: var(--sp-8);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-2);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .scroll-hint span {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-subtle);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .scroll-hint svg { animation: bob 2s ease-in-out infinite; }
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(4px); }
+    }
+
+    /* ── What is CASE ─────────────────────────── */
+    .what-is-case {
+      position: relative;
+      z-index: 20;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding-block: var(--sp-24);
+    }
+
+    .what-is-case .inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-16);
+      align-items: start;
+    }
+
+    @media (max-width: 760px) {
+      .what-is-case .inner { grid-template-columns: 1fr; }
+    }
+
+    .history-body {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.75;
+    }
+    .history-body p + p { margin-top: var(--sp-4); }
+
+    .values-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      margin-top: var(--sp-4);
+    }
+    .values-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    .values-list li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 0.48em;
+    }
+
+    /* ── Page links ───────────────────────────── */
+    .page-links {
+      position: relative;
+      z-index: 20;
+      background: var(--color-bg);
+      padding-block: var(--sp-24);
+    }
+
+    .page-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--sp-4);
+      margin-top: var(--sp-10);
+    }
+
+    .page-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--sp-6);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow var(--dur) var(--ease),
+                  border-color var(--dur) var(--ease),
+                  transform var(--dur) var(--ease);
+    }
+    .page-card:hover {
+      box-shadow: var(--shadow);
+      border-color: transparent;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    .page-card__label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+    .page-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.25;
+    }
+    .page-card__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .page-card__arrow {
+      padding-top: var(--sp-4);
+      font-size: var(--text-sm);
+      color: var(--color-accent);
+    }
+
+    /* ── Partners ─────────────────────────────── */
+    .partners {
+      position: relative;
+      z-index: 20;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding-block: var(--sp-20);
+    }
+
+    .partners-sub {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      max-width: 56ch;
+      line-height: 1.65;
+      margin-top: var(--sp-3);
+      margin-bottom: var(--sp-12);
+    }
+
+    .partners-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--sp-8) var(--sp-10);
+    }
+
+    .partners-grid img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.65;
+      filter: grayscale(1);
+      transition: opacity var(--dur) var(--ease),
+                  filter  var(--dur) var(--ease);
+    }
+
+    .partners-grid img:hover {
+      opacity: 1;
+      filter: grayscale(0);
+    }
+
+    .doe-programs {
+      list-style: none;
+      margin-bottom: var(--sp-10);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+
+    .doe-programs li {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="constellation"></canvas>
+
+  <!-- ── Navigation ──────────────────────────────────── -->
+  <!-- is-hero: starts hidden, JS controls visibility via scroll -->
+  <nav class="site-nav is-hero" id="site-nav" aria-label="Site navigation">
+    <a class="nav-logo" href="index.html">CASE</a>
+    <ul class="nav-links" role="list">
+      <li><a href="what-is-case.html">What is CASE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="network.html">Network</a></li>
+      <li><a href="committee.html">Organizing Committee</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="signup.html" class="nav-cta">Join →</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────── -->
+  <section class="hero" id="hero" aria-label="Introduction">
+
+    <span class="hero-eyebrow" id="hero-eyebrow">
+      Lawrence Berkeley National Laboratory
+    </span>
+
+    <h1 class="hero-title" id="hero-title">
+      <span class="line"><span class="key">C</span><span class="tail" id="tail-0">ommunity for</span></span>
+      <span class="line"><span class="key">A</span><span class="tail" id="tail-1">utonomous</span></span>
+      <span class="line"><span class="key">S</span><span class="tail" id="tail-2">cientific</span></span>
+      <span class="line"><span class="key">E</span><span class="tail" id="tail-3">xperimentation</span></span>
+    </h1>
+
+    <p class="hero-sub" id="hero-sub">
+      A consortium of researchers building self-driving laboratories,
+      AI-guided experiments, and autonomous discovery systems across
+      national labs and universities worldwide.
+    </p>
+
+    <div class="hero-actions" id="hero-actions">
+      <a href="signup.html" class="btn btn--primary">Join the Network &nbsp;→</a>
+      <a href="what-is-case.html" class="btn btn--ghost">Learn more</a>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Explore</span>
+      <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+        <path d="M1 1l5 5 5-5" stroke="#9ca3af" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+  </section>
+
+  <!-- ── What is CASE ─────────────────────────────────── -->
+  <section class="what-is-case">
+    <div class="container">
+      <div class="inner">
+
+        <div>
+          <p class="section-label">About</p>
+          <h2 class="section-heading">What is CASE?</h2>
+          <div class="history-body">
+            <p>
+              The application of AI/ML methods to experimental and computational
+              sciences, in order to enable autonomy and accelerate discovery, has
+              become an extremely exciting and rapidly-evolving field. The goal of
+              this community is to bring together researchers in this field to
+              discuss developments and share best practices. It is our hope that
+              people will use this website as a resource to connect with other
+              like-minded people and to find information about methods,
+              applications, literature, and software tools.
+            </p>
+            <p>
+              In April 2021,
+              <a href="https://camera.lbl.gov/">CAMERA (The Center for Advanced
+              Mathematics for Energy Research Applications)</a> held a workshop
+              titled "Autonomous Discovery in Science and Engineering." One of the
+              key takeaways was that Autonomous Experimentation is a multi-faceted
+              endeavor that needs mastery in many different areas of expertise.
+              CASE was created to facilitate collaborations and information
+              exchange to accelerate the adoption of autonomous methods and aid
+              scientific discovery.
+            </p>
+          </div>
+          <a href="what-is-case.html" class="btn btn--ghost" style="margin-top: var(--sp-8);">
+            Full history →
+          </a>
+        </div>
+
+        <div>
+          <p class="section-label">Values</p>
+          <h2 class="section-heading">What we stand for</h2>
+          <ul class="values-list" role="list">
+            <li>Free exchange of ideas and knowledge</li>
+            <li>Easy access to other members' expertise</li>
+            <li>Support of new collaborations</li>
+            <li>Events to spread knowledge and engage members</li>
+            <li>An accepting and supportive environment</li>
+          </ul>
+          <p style="margin-top: var(--sp-6); font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.65; max-width: 38ch;">
+            The emphasis is on <strong>simplicity</strong> and <strong>informality</strong>.
+            Every member can share anything related to autonomous discovery:
+            conferences, software, papers, and more.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Get Involved ─────────────────────────────────── -->
+  <section class="page-links">
+    <div class="container">
+      <p class="section-label">Explore</p>
+      <h2 class="section-heading">Get involved</h2>
+
+      <div class="page-links-grid">
+
+        <a href="events.html" class="page-card">
+          <span class="page-card__label">Events</span>
+          <span class="page-card__title">Seminars &amp; Workshops</span>
+          <span class="page-card__desc">
+            Past and upcoming talks, the Autonomous Experimentation 101
+            seminar series, and workshop recordings.
+          </span>
+          <span class="page-card__arrow">Browse events →</span>
+        </a>
+
+        <a href="network.html" class="page-card">
+          <span class="page-card__label">Network</span>
+          <span class="page-card__title">Member Directory</span>
+          <span class="page-card__desc">
+            Researchers and institutions across the CASE network working
+            on autonomous discovery.
+          </span>
+          <span class="page-card__arrow">View network →</span>
+        </a>
+
+        <a href="committee.html" class="page-card">
+          <span class="page-card__label">People</span>
+          <span class="page-card__title">Organizing Committee</span>
+          <span class="page-card__desc">
+            The team steering the CASE community, from national labs
+            and universities worldwide.
+          </span>
+          <span class="page-card__arrow">Meet the team →</span>
+        </a>
+
+        <a href="resources.html" class="page-card">
+          <span class="page-card__label">Resources</span>
+          <span class="page-card__title">Code &amp; Software</span>
+          <span class="page-card__desc">
+            Open-source tools for autonomous discovery: gpCAM, DataFed,
+            ESCALATE, Summit, and more.
+          </span>
+          <span class="page-card__arrow">Browse resources →</span>
+        </a>
+
+        <a href="signup.html" class="page-card">
+          <span class="page-card__label">Join</span>
+          <span class="page-card__title">Sign Up</span>
+          <span class="page-card__desc">
+            Open to all researchers interested in autonomous scientific
+            experimentation. No obligations.
+          </span>
+          <span class="page-card__arrow">Join CASE →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Partners ─────────────────────────────────────── -->
+  <section class="partners">
+    <div class="container">
+      <p class="section-label">Partner Institutions</p>
+      <p class="partners-sub">
+        CASE members span national laboratories, universities, and research
+        centers worldwide. Supported by the US Department of Energy Office
+        of Science under two programs:
+      </p>
+      <ul class="doe-programs">
+        <li>Advanced Scientific Computing Research (<a href="mailto:steven.lee@science.doe.gov">steven.lee@science.doe.gov</a>)</li>
+        <li>Basic Energy Sciences (<a href="mailto:Peter.Lee@science.doe.gov">Peter.Lee@science.doe.gov</a>)</li>
+      </ul>
+      <div class="partners-grid">
+        <img src="assets/logos/camera.png"           alt="CAMERA Applied Math, Berkeley Lab">
+        <img src="assets/logos/brookhaven.png"        alt="Brookhaven National Laboratory">
+        <img src="assets/logos/ornl.png"              alt="Oak Ridge National Laboratory">
+        <img src="assets/logos/ill.png"               alt="ILL Neutrons for Science">
+        <img src="assets/logos/als.png"               alt="Advanced Light Source, Berkeley Lab">
+        <img src="assets/logos/nsls2.png"             alt="NSLS-II, National Synchrotron Light Source">
+        <img src="assets/logos/nist.png"              alt="NIST">
+        <img src="assets/logos/cmu.png"               alt="Carnegie Mellon University">
+        <img src="assets/logos/cfn-bnl.png"           alt="Center for Functional Nanomaterials, Brookhaven">
+        <img src="assets/logos/jbei.png"              alt="Joint BioEnergy Institute">
+        <img src="assets/logos/agile-biofoundry.png"  alt="Agile BioFoundry">
+        <img src="assets/logos/esc-berkeley.png"      alt="Energy Storage Center, Berkeley Lab">
+        <img src="assets/logos/bsisb.png"             alt="Berkeley Synchrotron Infrared Structural Biology Imaging Program">
+        <img src="assets/logos/tum.png"               alt="Technische Universität München">
+        <img src="assets/logos/birmingham.png"         alt="University of Birmingham">
+        <img src="assets/logos/alberta.png"            alt="University of Alberta">
+        <img src="assets/logos/bayreuth.png"           alt="Universität Bayreuth">
+        <img src="assets/logos/doe-office-of-science.png" alt="US Department of Energy Office of Science">
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────── -->
+  <footer class="site-footer" style="position: relative; z-index: 20;">
+    <div class="container">
+      <div class="footer-brand">
+        <span class="footer-logo">CASE</span>
+        <p class="footer-tagline">
+          Community for Autonomous Scientific Experimentation<br>
+          Hosted at Lawrence Berkeley National Laboratory
+        </p>
+        <p class="footer-meta">
+          For questions: <a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul role="list">
+          <li><a href="what-is-case.html">What is CASE</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="network.html">Network</a></li>
+          <li><a href="committee.html">Organizing Committee</a></li>
+          <li><a href="resources.html">Code &amp; Resources</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul role="list">
+          <li><a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    'use strict';
+
+    /* ═══════════════════════════════════════════
+       CONSTELLATION CANVAS
+    ═══════════════════════════════════════════ */
+    const canvas = document.getElementById('constellation');
+    const ctx    = canvas.getContext('2d');
+    const CR = 15, CG = 118, CB = 110;
+
+    const TARGET_N  = 48;
+    const MIN_GAP   = 85;
+    const LINK_DIST = 350;
+    const SPD       = 0.22;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let W = 0, H = 0, nodes = [], raf = null, canvasAlpha = 1;
+
+    function initNodes() {
+      nodes = [];
+      let tries = 0;
+      while (nodes.length < TARGET_N && tries < TARGET_N * 50) {
+        tries++;
+        const x = Math.random() * W, y = Math.random() * H;
+        if (nodes.some(n => {
+          const dx = n.x - x, dy = n.y - y;
+          return dx * dx + dy * dy < MIN_GAP * MIN_GAP;
+        })) continue;
+        const roll = Math.random();
+        let r, a;
+        if      (roll < 0.12) { r = 9  + Math.random() * 5;   a = 0.75 + Math.random() * 0.20; }
+        else if (roll < 0.40) { r = 5  + Math.random() * 3.5; a = 0.48 + Math.random() * 0.22; }
+        else                   { r = 2  + Math.random() * 3;   a = 0.20 + Math.random() * 0.24; }
+        nodes.push({ x, y, r, a,
+          vx: (Math.random() - 0.5) * SPD * 2,
+          vy: (Math.random() - 0.5) * SPD * 2 });
+      }
+    }
+
+    function drawCanvas() {
+      ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      ctx.globalAlpha = canvasAlpha;
+
+      for (let i = 0; i < nodes.length; i++) {
+        const a = nodes[i];
+        for (let j = i + 1; j < nodes.length; j++) {
+          const b = nodes[j];
+          const dx = b.x - a.x, dy = b.y - a.y, d2 = dx*dx + dy*dy;
+          if (d2 > LINK_DIST * LINK_DIST) continue;
+          const t = 1 - Math.sqrt(d2) / LINK_DIST;
+          ctx.strokeStyle = `rgba(${CR},${CG},${CB},${t * t * 0.16})`;
+          ctx.lineWidth = 1.75;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+
+      for (const n of nodes) {
+        ctx.fillStyle = `rgba(${CR},${CG},${CB},${n.a})`;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+
+      if (!reduced) {
+        for (const n of nodes) {
+          n.x += n.vx; n.y += n.vy;
+          if (n.x < -20)    n.x = W + 20;
+          if (n.x > W + 20) n.x = -20;
+          if (n.y < -20)    n.y = H + 20;
+          if (n.y > H + 20) n.y = -20;
+        }
+        raf = requestAnimationFrame(drawCanvas);
+      }
+    }
+
+    function initCanvas() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+      if (raf) cancelAnimationFrame(raf);
+      initNodes();
+      drawCanvas();
+    }
+
+    window.addEventListener('resize', initCanvas);
+    initCanvas();
+
+    /* ═══════════════════════════════════════════
+       SCROLL-DRIVEN HERO ANIMATION
+    ═══════════════════════════════════════════ */
+    const nav     = document.getElementById('site-nav');
+    const hero    = document.getElementById('hero');
+    const eyebrow = document.getElementById('hero-eyebrow');
+    const sub     = document.getElementById('hero-sub');
+    const actions = document.getElementById('hero-actions');
+    const tails   = [0,1,2,3].map(i => document.getElementById(`tail-${i}`));
+    const keys    = [...document.querySelectorAll('.hero-title .key')];
+
+    const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+    const win   = (p, a, b)   => clamp((p - a) / (b - a), 0, 1);
+    const ease  = t            => t * t * (3 - 2 * t);
+
+    function onScroll() {
+      const p = clamp(window.scrollY / window.innerHeight, 0, 1);
+
+      eyebrow.style.opacity = 1 - ease(win(p, 0, 0.20));
+
+      const auxFade = 1 - ease(win(p, 0, 0.25));
+      sub.style.opacity     = auxFade;
+      actions.style.opacity = auxFade;
+
+      tails.forEach(t => { t.style.opacity = 1 - ease(win(p, 0.05, 0.42)); });
+      keys.forEach(k  => { k.style.opacity  = 1 - ease(win(p, 0.45, 0.70)); });
+
+      const heroP = ease(win(p, 0.20, 0.75));
+      hero.style.opacity   = 1 - heroP;
+      hero.style.transform = `translateY(${heroP * -80}px)`;
+
+      canvasAlpha = 1 - ease(win(p, 0.30, 0.85));
+      if (reduced) drawCanvas();
+
+      const navP = ease(win(p, 0.35, 0.65));
+      nav.style.opacity     = navP;
+      nav.style.transform   = `translateY(${(1 - navP) * -10}px)`;
+      nav.style.pointerEvents = navP > 0.5 ? 'auto' : 'none';
+      nav.classList.toggle('is-scrolled', window.scrollY > 20);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+
+</body>
+</html>

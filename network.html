@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network | Community for Autonomous Scientific Experimentation</title>
+  <meta name="description" content="Currently, CASE has more than 250 members. Browse the CASE network directory by name or email.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    .page-shell {
+      padding-top: calc(var(--sp-24) + var(--sp-12));
+      background: var(--color-bg);
+    }
+
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      padding-block: var(--sp-16) var(--sp-20);
+      background:
+        linear-gradient(180deg, rgba(15, 118, 110, 0.05), transparent 16rem),
+        radial-gradient(circle at 100% 0%, rgba(14, 165, 233, 0.08), transparent 18rem),
+        var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 78% 28%, rgba(45, 212, 191, 0.08), transparent 22rem);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      max-width: 72ch;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 5.4vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      max-width: 11ch;
+      margin-bottom: var(--sp-5);
+    }
+
+    .hero-copy {
+      max-width: 62ch;
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      line-height: 1.75;
+    }
+
+    .hero-copy strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    .hero-highlights {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      margin-top: var(--sp-8);
+    }
+
+    .hero-highlights li {
+      padding: 0.72rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 118, 110, 0.14);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      box-shadow: 0 8px 24px rgba(17, 24, 39, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      padding: var(--sp-8);
+      border-radius: 1.5rem;
+      background:
+        radial-gradient(circle at top right, rgba(45, 212, 191, 0.12), transparent 42%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 250, 0.95));
+      border: 1px solid rgba(15, 118, 110, 0.14);
+      box-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 0.25rem;
+      background: linear-gradient(90deg, rgba(15, 118, 110, 0.7), rgba(14, 165, 233, 0.35));
+    }
+
+    .hero-panel-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--sp-4);
+    }
+
+    .hero-panel-stat {
+      display: grid;
+      gap: var(--sp-1);
+      margin-bottom: var(--sp-5);
+    }
+
+    .hero-panel-stat strong {
+      font-family: var(--font-heading);
+      font-size: clamp(2.3rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--color-text);
+    }
+
+    .hero-panel-stat span,
+    .hero-panel-copy {
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      font-size: var(--text-base);
+    }
+
+    .hero-panel-copy {
+      margin-bottom: var(--sp-6);
+    }
+
+    .hero-panel-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      align-items: center;
+    }
+
+    .hero-panel-actions .btn {
+      padding-inline: var(--sp-6);
+    }
+
+    .hero-panel-note {
+      margin-top: var(--sp-5);
+      font-size: var(--text-sm);
+      color: var(--color-text-subtle);
+    }
+
+    .directory-section {
+      position: relative;
+      background: var(--color-surface);
+    }
+
+    .directory-section .container {
+      display: grid;
+      gap: var(--sp-10);
+    }
+
+    .directory-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+      gap: var(--sp-8);
+      align-items: end;
+    }
+
+    .directory-lede {
+      max-width: 64ch;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-top: var(--sp-3);
+    }
+
+    .directory-search {
+      padding: var(--sp-5);
+      border-radius: 1.25rem;
+      border: 1px solid var(--color-border);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 250, 0.98));
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    .directory-search label {
+      display: block;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--sp-3);
+    }
+
+    .directory-search input {
+      width: 100%;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(15, 118, 110, 0.16);
+      background: var(--color-bg);
+      color: var(--color-text);
+      padding: 0.95rem 1rem;
+      font: inherit;
+      font-size: var(--text-base);
+      outline: none;
+      transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
+
+    .directory-search input::placeholder {
+      color: var(--color-text-subtle);
+    }
+
+    .directory-search input:focus {
+      border-color: rgba(15, 118, 110, 0.45);
+      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
+    }
+
+    .directory-search p {
+      margin-top: var(--sp-3);
+      font-size: var(--text-sm);
+      color: var(--color-text-subtle);
+      line-height: 1.5;
+    }
+
+    .directory-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      padding: var(--sp-4) var(--sp-5);
+      border-radius: 1rem;
+      background: rgba(15, 118, 110, 0.04);
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      color: var(--color-text-muted);
+    }
+
+    .directory-summary strong {
+      color: var(--color-text);
+      font-weight: 700;
+    }
+
+    .member-index {
+      display: grid;
+      gap: var(--sp-10);
+    }
+
+    .member-group {
+      display: grid;
+      gap: var(--sp-4);
+    }
+
+    .member-group__letter {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-3);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    .member-group__letter::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      min-width: 2rem;
+      background: linear-gradient(90deg, rgba(15, 118, 110, 0.18), transparent);
+    }
+
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: var(--sp-4);
+    }
+
+    .member-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      min-height: 100%;
+      padding: var(--sp-5);
+      border-radius: 1.15rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+
+    .member-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.08);
+      border-color: rgba(15, 118, 110, 0.2);
+    }
+
+    .member-card__top {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+    }
+
+    .member-avatar {
+      width: 2.85rem;
+      height: 2.85rem;
+      border-radius: 999px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--color-accent);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(45, 212, 191, 0.18), transparent 50%),
+        rgba(15, 118, 110, 0.08);
+      border: 1px solid rgba(15, 118, 110, 0.12);
+    }
+
+    .member-card__body {
+      display: grid;
+      gap: var(--sp-2);
+      min-width: 0;
+    }
+
+    .member-name {
+      font-family: var(--font-heading);
+      font-size: var(--text-base);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--color-text);
+      word-break: break-word;
+    }
+
+    .member-email {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      line-height: 1.55;
+      word-break: break-word;
+    }
+
+    .member-email a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .member-email a:hover {
+      text-decoration: underline;
+    }
+
+    .member-domain {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.08);
+      color: var(--color-accent);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .empty-state {
+      padding: var(--sp-8);
+      border-radius: 1.25rem;
+      border: 1px dashed rgba(15, 118, 110, 0.22);
+      background: rgba(15, 118, 110, 0.03);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 960px) {
+      .directory-header {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page-shell {
+        padding-top: calc(var(--sp-20) + var(--sp-10));
+      }
+
+      .page-hero {
+        padding-block: var(--sp-12) var(--sp-16);
+      }
+
+      .hero-highlights {
+        flex-direction: column;
+      }
+
+      .directory-summary {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav is-scrolled" aria-label="Site navigation">
+    <a class="nav-logo" href="index.html">CASE</a>
+    <ul class="nav-links" role="list">
+      <li><a href="what-is-case.html">What is CASE</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="network.html" aria-current="page">Network</a></li>
+      <li><a href="committee.html">Organizing Committee</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="signup.html" class="nav-cta">Join →</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="container">
+        <div class="hero-grid">
+          <p class="section-label">Network</p>
+          <h1 class="hero-title">CASE members and contacts</h1>
+          <p class="hero-copy">
+            CASE has <strong>more than 250 members</strong> across national labs,
+            universities, and research centers worldwide. Since networking is the
+            primary purpose of this community, contact information for all members
+            is listed below.
+          </p>
+          <div style="margin-top: var(--sp-8); display: flex; gap: var(--sp-3); flex-wrap: wrap;">
+            <a class="btn btn--primary" href="#directory">Browse directory</a>
+            <a class="btn btn--ghost" href="signup.html">Join CASE</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface directory-section" id="directory">
+      <div class="container">
+        <div class="directory-header">
+          <div>
+            <p class="section-label">Directory</p>
+            <h2 class="section-heading">Browse the member list</h2>
+            <p class="directory-lede">
+              Members are listed alphabetically by name. Search to filter by person,
+              institution, or email domain.
+            </p>
+          </div>
+
+          <div class="directory-search">
+            <label for="member-search">Search members</label>
+            <input
+              id="member-search"
+              type="search"
+              inputmode="search"
+              autocomplete="off"
+              placeholder="Try Marcus, lbl.gov, or CMU"
+              aria-label="Search members by name or email"
+            >
+            <p>Examples: Marcus, lbl.gov, CMU, or a full email address.</p>
+          </div>
+        </div>
+
+        <div class="directory-summary" aria-live="polite">
+          <p><strong id="member-count">226</strong> members match the current filter.</p>
+        </div>
+
+        <div id="member-index" class="member-index" aria-label="Member directory"></div>
+        <p id="member-empty" class="empty-state" hidden>No matches found. Try a different name or email.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <span class="footer-logo">CASE</span>
+        <p class="footer-tagline">
+          Community for Autonomous Scientific Experimentation<br>
+          Hosted at Lawrence Berkeley National Laboratory
+        </p>
+        <p class="footer-meta">
+          For questions: <a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul role="list">
+          <li><a href="what-is-case.html">What is CASE</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="network.html" aria-current="page">Network</a></li>
+          <li><a href="committee.html">Organizing Committee</a></li>
+          <li><a href="resources.html">Code &amp; Resources</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul role="list">
+          <li><a href="mailto:MarcusNoack@lbl.gov">MarcusNoack@lbl.gov</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script id="network-names" type="text/plain">
+A. Gilad Kusne
+Aaron Michelson
+Abhishek Pachauri
+Ai Kagawa
+Aldair Gongora
+Alec Sandy
+Alexander Landauer
+Andreia Filipa Almeida
+Andy Smith
+Ang Li
+Ankita Shukla
+Antonio Cardone
+Anudha Mittal
+Arpan Biswas
+Artur Schweidtmann
+Arun Persaud
+Arun Sathanur
+Asmita Jana
+B. Reeja Jayan
+Bappaditya Dey
+Bashir Mohammed
+Benji Maruyama
+Bobby Sumpter
+Bret Peterson
+Byung-Jun Yoon
+Carolin Sutter-Fella
+Charles Andersen
+Chris Wolverton
+Christian Engelmann
+Christina Schenk
+Christine Sweeney
+Christopher
+Christopher Langmead
+Christopher Williams
+Claudia Schillings
+Dani Ushizima
+David Hoogerheide
+Derek Mariscal
+Dexter Antonio
+Dhananjay Bhaskar
+Donglai Wei
+Drew M. Glenna
+Dula Parkinson
+Edward Barnard
+Eliane Lessner
+Elke Arenholz
+Emily Barnes
+Emory Chan
+Eric Roberts
+Eric Wiedner
+Esther Tsai
+Ethan Crumlin
+Eva M. Campo
+Eva M. Herzig
+Fang Lu
+Filippos Tourlomousis
+Frank Heinrich
+Gaurav Chopra
+Gregory Doerk
+Guillaume Freychet
+Gyorgy Babnigg
+Haegyum Kim
+Hannah Parraga
+Hannah Ransom
+Haruko Wainwright
+Hector Garcia Martin
+Hereld Mark
+Hilmar Koerner
+Hoi-Ying Holman
+Hongyi Lin
+Horst D Simon
+Huangqingbo (Paul) Sun
+Ian Foster
+Jacob Nye
+James Warren
+Jan Michael Carrillo
+Jana Thayer
+Jaron Thompson
+Jaydeep Bardhan
+Jeff Urban
+Jeyan Thiyagalingam
+Jin qian
+Jinghua Guo
+Johan van der Westhuizen
+Johannes Mahl
+Jordan M Wick
+Jose Lugo-Martinez
+Josh Kangas
+Joshua Schrier
+Juliane Mueller
+Karthik Duraisamy
+Katherine Evans
+Katherine Jungjohann
+Kedar Hippalgaonkar
+Keith A. Brown
+Keith Butler
+Kelsey Snapp
+Kevin Jablonka
+Kevin Yager
+Kobi Felton
+Kristof Toth
+Kristofer Reyes
+Leanne Friedrich
+Liang Chen
+Lianyi Chen
+Linda Beverly
+Linda Hung
+Ling Lan
+Linus Pithan
+Liu Shannan
+Loïc Roch
+Luka Grbcic
+Mahantesh M Halappanavar
+Malachi Schram
+Manuel Sosa Rivas
+Marcus Noack
+Margaret Lund
+Maria Chan
+Mariam Kiran
+Marina Ganeva
+Mario Parente
+Martin Boehm
+Maruti Kumar Mudunuru
+Masafumi Fukuto
+Mathieu Doucet
+Matthew Carbone
+Maxim Ziatdinov
+Michael Tynes
+Minjoon Kouh
+Morgan Chen
+Nageswara Rao
+Nam D. Nguyen
+Nancy Washton
+Nathan Johnson
+Neeraj Kumr
+Nicholas Jose
+Nicholas Schwarz
+Nick Nelson
+Nick Terrill
+Nirmalendu Patra
+Noah Paulson
+Nobumichi Tamura
+Noel Bakhtian
+Nong Artrith
+Olexandr Isayev
+Olga Kuchar
+Oliver Hoidn
+OluFemi Omitaomu
+Omer Subasi
+Oyinkansola Romiluyi
+Paavo Penttilä
+Pankaj Rajak
+Peter Beaucage
+Peter Fraizer
+Petrus H Zwart
+Philip Constantine Dinenis
+Philipp Pelz
+Ping Yang
+Pouyan Aras Ghaffari
+Qin Wu
+Rachita Rana
+Rafael Vescovi
+Rajeev Thakur
+Raul Astudillo
+Raul Miranda
+Rebekah Duke
+Rhonda Moore
+Robert Rallo
+Robert Tang-Kong
+Roger Ghanem
+Rohan Dhall
+Roland Koch
+Roland Müller
+Ronald J Pandolfi
+Sandeep Kumar
+Santanu Chaudhuri
+Sara Miskovich
+Shakti Prasad Padhy
+Shijing Sun
+Shreyas Sundaram
+Shuo Qian
+Sonja Glavaski
+Soumyadeep Ghosh
+Steffen Weber
+Stephane GORSSE
+Steven Spurgeon
+Suchismita Sarker
+Suhas Somnath
+Sumner Harris
+Suren
+Sven Leyffer
+Talita Perciano
+Tammy Ma
+Tej S Choksi
+Thiyaga Thiyagarajan
+Thomas Britton
+Tijana Radivojevic
+Tim Snow
+Todd Edwards
+Torri Jeske
+Trent Northen
+Tyler Martin
+Ulyana Cubeta
+Uta Ruett
+Vahe Gharakhanyan
+Victor Zavala
+Vikas Varshney
+Vinay Amatya
+Vinayak Bhat
+Wendy Shaw
+Will Holtz
+William Ratcliff
+Xiaoning Qi
+Xiaoning Qian
+Xingang Zhao
+Yan Liu
+Ye Wang
+Yi Jiang
+Yizhou Zhu
+Yu-chen Karen Chen-Wiegart
+Yugang Zhang
+Yuxin Wu
+Zachary Cosenza
+Zamyla Chan
+Zhichu Ren
+Zhu Liang
+  </script>
+
+  <script id="network-emails" type="text/plain">
+aaron.kusne@nist.gov
+amichelson@bnl.gov
+abhishek.pachauri@utah.edu
+aik@bnl.gov
+agongora@bu.edu
+asandy@anl.gov
+landauer@nist.gov
+falmeida@ff.ulisboa.pt
+andrew.smith@diamond.ac.uk
+ang.li@pnnl.gov
+Ankita.Shukla@asu.edu
+toniocar@hotmail.com, antonio.cardone@nist.gov
+Anudham@gmail.com
+arpanbiswas52@gmail.com
+a.schweidtmann@tudelft.nl
+apersaud@lbl.gov
+arun.sathanur@pnnl.gov
+ajana@lbl.gov
+breeja@cmu.edu
+bappaditya.dey@imec.be
+BMOHAMMED@lbl.gov
+benjimaruyama@gmail.com
+sumpterbg@ornl.gov
+bretpeterson@lbl.gov
+bjyoon@tamu.edu
+csutterfella@lbl.gov
+candersen@anl.gov
+c-wolverton@northwestern.edu
+engelmannc@ornl.gov
+cschenk@bcamath.org
+cahrens@lanl.gov
+christopher.d.haines2.civ@mail.mil
+clangmea@amgen.com
+christopher.williams@colorado.edu
+c.schillings@uni-mannheim.de
+dushizima@lbl.gov
+david.hoogerheide@nist.gov
+mariscal2@llnl.gov
+dexter.d.antonio@gmail.com
+ddantonio@ucdavis.edu
+dhananjay.bhaskar@yale.edu
+donglai.wei@bc.edu
+glen3534@vandals.uidaho.edu
+dyparkinson@lbl.gov
+esbarnard@lbl.gov
+eliane.lessner@science.doe.gov
+elkearenholz@gmail.com
+barnes_emily@berkeley.edu
+emchan@lbl.gov
+ejroberts@lbl.gov
+eric.wiedner@pnnl.gov
+etsai@bnl.gov
+ejcrumlin@lbl.gov
+campostellaresearch@gmail.com
+eva.herzig@uni-bayreuth.de
+flu@bnl.gov
+filippos.tourlo@cba.mit.edu, filippos@superlabs.eu
+fheinrich@cmu.edu
+frank.heinrich@nist.gov
+gchopra@purdue.edu
+gdoerk@bnl.gov
+gfreychet@bnl.gov
+gbabnigg@anl.gov
+haegyumkim@lbl.gov
+hparraga@anl.gov
+hransom@lanl.gov
+hmwainwright@lbl.gov
+hgmartin@lbl.gov
+hereld@anl.gov
+hilmar.koerner.1@afrl.af.mil
+hyholman@lbl.gov
+hongyili@andrew.cmu.edu
+hdsimon@lbl.gov
+huangqis@andrew.cmu.edu
+foster@anl.gov
+jn2515@columbia.edu
+james.warren@nist.gov
+carrillojy@ornl.gov
+jana@slac.stanford.edu
+jcthompson5@wisc.edu
+jaydeep.bardhan@pnnl.gov
+jjurban@lbl.gov
+t.jeyan@stfc.ac.uk
+jqian2@lbl.gov
+jguo@lbl.gov
+carljohanvdw@gmail.com
+jmahl@lbl.gov
+jordmanwick@gmail.com
+joslug@gmail.com
+jkangas@andrew.cmu.edu
+jschrier@fordham.edu
+JulianeMueller@lbl.gov
+kdur@umich.edu
+evanskj@ornl.gov
+kljungj@sandia.gov
+kedar@ntu.edu.sg
+brownka@bu.edu
+keith.butler@stfc.ac.uk
+ksnapp@bu.edu
+kevin.jablonka@epfl.ch
+kyager@bnl.gov
+kobi.c.f@gmail.com
+kristof.toth@nist.gov
+kreyes3@buffalo.edu
+leanne.friedrich@nist.gov
+lchen2@lbl.gov
+lianyi.chen@wisc.edu
+lbeverly@horizon.csueastbay.edu
+linda.hung@tri.global
+ll3350@columbia.edu
+linus.pithan@gmail.com
+shannan.liu@gmail.com
+loic@atinary.com
+lgrbcic@lbl.gov
+hala@pnnl.gov
+schram@jlab.org
+dr.malachi.schram@gmail.com, schram@jlab.com
+manuelsosar@hotmail.com
+MarcusNoack@lbl.gov
+lundmc@nv.doe.gov
+mchan@anl.gov
+mkiran@es.net
+m.ganeva@fz-juelich.de
+m.parente@fz-juelich.de
+boehm@ill.fr
+maruti@pnnl.gov
+fukuto@bnl.gov
+doucetm@ornl.gov
+mrc2215@columbia.edu
+ziatdinovma@ornl.gov
+mtynes@fordham.edu
+mkouh@drew.edu
+morganc@andrew.cmu.edu
+raons@ornl.gov
+namn@cs.cmu.edu
+nancy.washton@pnnl.gov
+natej@stanford.edu
+neeraj.kumar@pnnl.gov
+nj278@cam.ac.uk
+nschwarz@anl.gov
+nick.nelson@pnnl.gov
+nick.terrill@diamond.ac.uk
+nbp@lbl.gov
+npaulson@anl.gov
+ntamura@lbl.gov
+noel@lbl.gov
+n.artrith@uu.nl
+olexandr@olexandrisayev.com
+kucharoa@ornl.gov
+ohoidn@gmail.com
+omitaomuoa@ornl.gov
+omer.subasi@pnnl.gov
+Oyinkansola.Romiluyi@lbl.gov
+paavo.penttila@aalto.fi
+pankajr127@gmail.com
+peter.beaucage@nist.gov
+pf98@cornell.edu
+phzwart@lbl.gov
+p.dinenis@columbia.edu
+philipp.pelz@yahoo.de
+pyang@lanl.gov
+pounou@biosustain.dtu.dk
+qinwu@bnl.gov
+racrana@ucdavis.edu
+ravescovi@anl.gov
+thakur@anl.gov
+ra598@cornell.edu
+raul.miranda@science.doe.gov
+rdu230@uky.edu
+Rhonda.Moore@nih.gov
+Robert.rallo@pnnl.gov
+roberttk@slac.stanford.edu
+ghanem@usc.edu
+rdhall@lbl.gov
+rjkoch@lbl.gov
+Roland.Mueller@helmholtz-berlin.de
+ronpandolfi@lbl.gov
+sandeepkumar.sssu@gmail.com
+schaudhuri@anl.gov
+smiskov@slac.stanford.edu
+shaktipr001@e.ntu.edu.sg
+sunsj12@gmail.com
+sundara2@purdue.edu
+qians@ornl.gov
+sonja.glavaski@pnnl.gov
+sghosh6@lbl.gov
+steffen.weber@haw-hamburg.de
+sgorsse@gmail.com
+steven.spurgeon@pnnl.gov
+suchismita13994@gmail.com
+somnaths@ornl.gov
+harrissb@ornl.gov
+sbyna@lbl.gov
+leyffer@anl.gov
+tperciano@lbl.gov
+ma8@llnl.gov
+tej.choksi@ntu.edu.sg
+p.thiyagarajan@science.doe.gov
+tbritton@jlab.org
+tradivojevic@lbl.gov
+tim.snow@diamond.ac.uk
+todd.edwards@pnnl.gov
+roark@jlab.org
+trnorthen@lbl.gov
+tyler.martin@nist.gov
+ulyana.cubeta@nist.gov
+uruett@anl.gov
+vg2471@columbia.edu
+victor.zavala@wisc.edu
+vikas.varshney.2@us.af.mil
+vinay.amatya@pnnl.gov
+vinayak18@uky.edu
+wendy.shaw@pnnl.gov
+wjholtz@lbl.gov
+william.ratcliff@nist.gov
+xiaoning.qi@ndsu.edu
+xqian@tamu.edu
+xingang.zhao@colorado.edu
+yanliu@ornl.gov
+yeyewangwang@lbl.gov
+yjiang@anl.gov
+yizhou.zhu@gmail.com
+Karen.Chen-Wiegart@stonybrook.edu
+yuzhang@bnl.gov
+ywu3@lbl.gov
+cosenzazachary@gmail.com
+  </script>
+
+  <script>
+    const nameLines = document.getElementById('network-names').textContent.trim().split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+    const emailLines = document.getElementById('network-emails').textContent.trim().split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+    const members = nameLines.map((name, index) => {
+      const email = emailLines[index] || '';
+      const primaryEmail = email.split(',')[0].trim();
+      const domain = primaryEmail.includes('@') ? primaryEmail.split('@')[1].toLowerCase() : '';
+      return { name, email, primaryEmail, domain };
+    });
+
+    const indexEl = document.getElementById('member-index');
+    const countEl = document.getElementById('member-count');
+    const emptyEl = document.getElementById('member-empty');
+    const searchEl = document.getElementById('member-search');
+
+    const PERSONAL_DOMAINS = new Set([
+      'gmail.com', 'yahoo.com', 'yahoo.co.uk', 'hotmail.com', 'hotmail.co.uk',
+      'outlook.com', 'live.com', 'msn.com', 'icloud.com', 'me.com', 'mac.com',
+      'aol.com', 'protonmail.com', 'proton.me'
+    ]);
+
+    const stripAccents = (value) => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+    const normalize = (value) => stripAccents(value).toLowerCase();
+    const initials = (name) => {
+      const parts = name.split(/[\s./-]+/).filter(Boolean);
+      return parts.slice(0, 2).map((part) => part[0]).join('').toUpperCase() || 'CASE';
+    };
+    const letterFor = (name) => {
+      const first = stripAccents(name.trim()).charAt(0).toUpperCase();
+      return /^[A-Z]$/.test(first) ? first : '#';
+    };
+    const escapeHtml = (value) => value
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+
+    function renderMembers(query) {
+      const q = normalize(query.trim());
+      const filtered = members.filter((member) => {
+        if (!q) return true;
+        return normalize(member.name).includes(q) || normalize(member.email).includes(q) || normalize(member.domain).includes(q);
+      });
+
+      countEl.textContent = filtered.length.toLocaleString('en-US');
+      emptyEl.hidden = filtered.length > 0;
+
+      const groups = [];
+      for (const member of filtered) {
+        const letter = letterFor(member.name);
+        let group = groups[groups.length - 1];
+        if (!group || group.letter !== letter) {
+          group = { letter, items: [] };
+          groups.push(group);
+        }
+        group.items.push(member);
+      }
+
+      indexEl.innerHTML = groups.map((group) => {
+        const cards = group.items.map((member) => {
+          const href = member.primaryEmail ? `mailto:${member.primaryEmail}` : '#';
+          const domain = member.domain ? member.domain.replace(/^www\./, '') : '';
+          const domainLabel = domain ? domain.replace(/^.*@/, '') : '';
+          return `
+            <article class="member-card">
+              <div class="member-card__top">
+                <div class="member-avatar" aria-hidden="true">${escapeHtml(initials(member.name))}</div>
+                <div class="member-card__body">
+                  <div class="member-name">${escapeHtml(member.name)}</div>
+                  <div class="member-email">
+                    <a href="${escapeHtml(href)}">${escapeHtml(member.email)}</a>
+                  </div>
+                </div>
+              </div>
+              ${domainLabel && !PERSONAL_DOMAINS.has(domainLabel) ? `<span class="member-domain">${escapeHtml(domainLabel)}</span>` : ''}
+            </article>
+          `;
+        }).join('');
+
+        return `
+          <section class="member-group" aria-labelledby="letter-${escapeHtml(group.letter)}">
+            <h3 class="member-group__letter" id="letter-${escapeHtml(group.letter)}">${escapeHtml(group.letter)}</h3>
+            <div class="member-grid">${cards}</div>
+          </section>
+        `;
+      }).join('');
+    }
+
+    searchEl.addEventListener('input', (event) => {
+      renderMembers(event.target.value);
+    });
+
+    renderMembers('');
+  </script>
+</body>
+</html>
