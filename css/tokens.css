@@ -1,0 +1,74 @@
+/* ═══════════════════════════════════════════
+   CASE Design Tokens
+   Source of truth for all visual values.
+   From .impeccable.md
+═══════════════════════════════════════════ */
+
+:root {
+  /* Color */
+  --color-bg:           #f8f9fa;
+  --color-surface:      #ffffff;
+  --color-text:         #111827;
+  --color-text-muted:   #6b7280;
+  --color-text-subtle:  #9ca3af;
+  --color-accent:       #0f766e;
+  --color-accent-dark:  #0d6158;
+  --color-accent-light: #ccfbf1;
+  --color-border:       #e5e7eb;
+  --color-border-light: #f3f4f6;
+
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Type scale (major third, 1.250) */
+  --text-xs:   0.75rem;    /* 12px */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg:   1.125rem;   /* 18px */
+  --text-xl:   1.25rem;    /* 20px */
+  --text-2xl:  1.5rem;     /* 24px */
+  --text-3xl:  1.875rem;   /* 30px */
+  --text-4xl:  2.25rem;    /* 36px */
+  --text-5xl:  3rem;       /* 48px */
+
+  /* Spacing (8px base) */
+  --sp-1:  0.25rem;   /* 4px  */
+  --sp-2:  0.5rem;    /* 8px  */
+  --sp-3:  0.75rem;   /* 12px */
+  --sp-4:  1rem;      /* 16px */
+  --sp-5:  1.25rem;   /* 20px */
+  --sp-6:  1.5rem;    /* 24px */
+  --sp-7:  1.75rem;   /* 28px */
+  --sp-8:  2rem;      /* 32px */
+  --sp-10: 2.5rem;    /* 40px */
+  --sp-12: 3rem;      /* 48px */
+  --sp-14: 3.5rem;    /* 56px */
+  --sp-16: 4rem;      /* 64px */
+  --sp-18: 4.5rem;    /* 72px */
+  --sp-20: 5rem;      /* 80px */
+  --sp-22: 5.5rem;    /* 88px */
+  --sp-24: 6rem;      /* 96px */
+  --sp-32: 8rem;      /* 128px */
+
+  /* Layout */
+  --max-w-content: 90rem;      /* 1440px - max content width */
+  --max-w-prose:   65ch;
+  --page-pad:      clamp(1.5rem, 8vw, 6rem);
+
+  /* Borders */
+  --radius-sm: 2px;
+  --radius:    4px;
+  --radius-md: 8px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+  --shadow:    0 2px 8px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.04);
+
+  /* Transitions */
+  --ease:    cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur:      250ms;
+  --dur-slow: 400ms;
+}

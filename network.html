@@ -401,6 +401,37 @@
         flex-direction: column;
       }
     }
+
+    /* ── Hero orbital viz ── */
+    .hero-viz {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 54%;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 24%);
+      mask-image: linear-gradient(to right, transparent 0%, black 24%);
+      opacity: 0;
+      animation: hero-viz-in 1.1s 0.2s ease forwards;
+    }
+
+    .hero-viz svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes hero-viz-in { to { opacity: 1; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-viz { opacity: 1; animation: none; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-viz { width: 100%; opacity: 0.25; animation: none; }
+    }
   </style>
 </head>
 <body>
@@ -419,6 +450,62 @@
 
   <main class="page-shell">
     <section class="page-hero">
+      <!-- Orbital arcs: concentric semicircles emanating from off-canvas right,
+           dots placed along each arc evoke the 250+ member institutions -->
+      <div class="hero-viz" aria-hidden="true">
+        <svg viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid meet">
+          <!-- True circular arcs (SVG A command), all centered at (460,170).
+               Each is a left-opening semicircle; SVG clips at viewBox edge.
+               Dots were calculated for the same center so they sit exactly on the arcs. -->
+
+          <!-- r=325 (outermost, faintest) -->
+          <path d="M 460 -155 A 325 325 0 0 0 460 495"
+                stroke="rgba(15,118,110,0.07)" stroke-width="1" fill="none"/>
+          <!-- r=245 -->
+          <path d="M 460 -75 A 245 245 0 0 0 460 415"
+                stroke="rgba(15,118,110,0.11)" stroke-width="1" fill="none"/>
+          <!-- r=165 -->
+          <path d="M 460 5 A 165 165 0 0 0 460 335"
+                stroke="rgba(15,118,110,0.17)" stroke-width="1.5" fill="none"/>
+          <!-- r=85 (innermost, sharpest) -->
+          <path d="M 460 85 A 85 85 0 0 0 460 255"
+                stroke="rgba(15,118,110,0.24)" stroke-width="1.5" fill="none"/>
+
+          <!-- Dots on arc r=85 -->
+          <circle cx="418" cy="244" r="2.5" fill="rgba(15,118,110,0.48)"/>
+          <circle cx="386" cy="213" r="2.5" fill="rgba(15,118,110,0.48)"/>
+          <circle cx="375" cy="170" r="3.5" fill="rgba(15,118,110,0.62)"/>
+          <circle cx="386" cy="128" r="2.5" fill="rgba(15,118,110,0.48)"/>
+          <circle cx="418" cy="96"  r="2.5" fill="rgba(15,118,110,0.48)"/>
+
+          <!-- Dots on arc r=165 -->
+          <circle cx="404" cy="325" r="2"   fill="rgba(15,118,110,0.36)"/>
+          <circle cx="354" cy="296" r="2.5" fill="rgba(15,118,110,0.36)"/>
+          <circle cx="317" cy="253" r="2.5" fill="rgba(15,118,110,0.40)"/>
+          <circle cx="301" cy="213" r="2"   fill="rgba(15,118,110,0.36)"/>
+          <circle cx="295" cy="170" r="3"   fill="rgba(15,118,110,0.52)"/>
+          <circle cx="301" cy="127" r="2"   fill="rgba(15,118,110,0.36)"/>
+          <circle cx="317" cy="88"  r="2.5" fill="rgba(15,118,110,0.40)"/>
+          <circle cx="354" cy="44"  r="2.5" fill="rgba(15,118,110,0.36)"/>
+          <circle cx="404" cy="15"  r="2"   fill="rgba(15,118,110,0.36)"/>
+
+          <!-- Dots on arc r=245 -->
+          <circle cx="272" cy="328" r="2"   fill="rgba(15,118,110,0.26)"/>
+          <circle cx="238" cy="274" r="2"   fill="rgba(15,118,110,0.26)"/>
+          <circle cx="219" cy="213" r="2"   fill="rgba(15,118,110,0.30)"/>
+          <circle cx="215" cy="170" r="2.5" fill="rgba(15,118,110,0.40)"/>
+          <circle cx="219" cy="127" r="2"   fill="rgba(15,118,110,0.30)"/>
+          <circle cx="238" cy="66"  r="2"   fill="rgba(15,118,110,0.26)"/>
+          <circle cx="272" cy="13"  r="2"   fill="rgba(15,118,110,0.26)"/>
+
+          <!-- Dots on arc r=325 -->
+          <circle cx="179" cy="333" r="1.5" fill="rgba(15,118,110,0.20)"/>
+          <circle cx="146" cy="254" r="1.5" fill="rgba(15,118,110,0.20)"/>
+          <circle cx="135" cy="170" r="2"   fill="rgba(15,118,110,0.28)"/>
+          <circle cx="146" cy="86"  r="1.5" fill="rgba(15,118,110,0.20)"/>
+          <circle cx="179" cy="8"   r="1.5" fill="rgba(15,118,110,0.20)"/>
+        </svg>
+      </div>
       <div class="container">
         <div class="hero-grid">
           <p class="section-label">Network</p>

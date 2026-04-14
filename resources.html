@@ -427,6 +427,38 @@
     @media (max-width: 768px) {
       .hero-viz { width: 100%; opacity: 0.35; animation: none; }
     }
+
+    /* ── Scroll indicator ── */
+    .scroll-cue {
+      position: absolute;
+      bottom: var(--sp-6);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--color-text-subtle);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .scroll-cue span {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .scroll-cue {
+        animation: cue-bob 2.2s ease-in-out infinite;
+      }
+    }
+
+    @keyframes cue-bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.55; }
+      50%       { transform: translateX(-50%) translateY(5px); opacity: 0.85; }
+    }
   </style>
 </head>
 <body>
@@ -445,6 +477,42 @@
 
   <main class="page-shell">
     <section class="page-hero">
+      <div class="hero-viz" aria-hidden="true">
+        <svg viewBox="0 0 560 290" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMax meet">
+          <!-- Grid -->
+          <line x1="-40" y1="270" x2="620" y2="270" stroke="rgba(15,118,110,0.18)" stroke-width="1"/>
+          <line x1="-40" y1="180" x2="620" y2="180" stroke="rgba(15,118,110,0.06)" stroke-width="1" stroke-dasharray="4 8"/>
+          <line x1="-40" y1="90"  x2="620" y2="90"  stroke="rgba(15,118,110,0.06)" stroke-width="1" stroke-dasharray="4 8"/>
+          <!-- Amber curve (background) -->
+          <path d="M 295 270 C 348 270, 406 155, 444 155 C 482 155, 532 270, 582 270 Z"
+                fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.22)" stroke-width="1.5"/>
+          <!-- Teal curve 2 (mid) -->
+          <path d="M 90 270 C 152 270, 212 68, 270 68 C 328 68, 388 270, 450 270 Z"
+                fill="rgba(15,118,110,0.08)" stroke="rgba(15,118,110,0.26)" stroke-width="1.5"/>
+          <!-- Teal curve 1 (foreground, tallest) -->
+          <path d="M -40 270 C 24 270, 102 16, 162 16 C 222 16, 300 270, 362 270 Z"
+                fill="rgba(15,118,110,0.13)" stroke="rgba(15,118,110,0.52)" stroke-width="2"/>
+          <!-- Peak dots -->
+          <circle cx="162" cy="16"  r="3.5" fill="rgba(15,118,110,0.65)"/>
+          <circle cx="270" cy="68"  r="2.5" fill="rgba(15,118,110,0.45)"/>
+          <circle cx="444" cy="155" r="2.5" fill="rgba(245,158,11,0.52)"/>
+          <!-- Drop lines from peaks to baseline -->
+          <line x1="162" y1="20"  x2="162" y2="268" stroke="rgba(15,118,110,0.12)" stroke-width="1" stroke-dasharray="3 6"/>
+          <line x1="270" y1="72"  x2="270" y2="268" stroke="rgba(15,118,110,0.10)" stroke-width="1" stroke-dasharray="3 6"/>
+          <line x1="444" y1="159" x2="444" y2="268" stroke="rgba(245,158,11,0.14)" stroke-width="1" stroke-dasharray="3 6"/>
+          <!-- Axis labels -->
+          <text x="162" y="284" text-anchor="middle" font-size="10" fill="rgba(15,118,110,0.42)" font-family="monospace">μ₁</text>
+          <text x="270" y="284" text-anchor="middle" font-size="10" fill="rgba(15,118,110,0.34)" font-family="monospace">μ₂</text>
+          <text x="444" y="284" text-anchor="middle" font-size="10" fill="rgba(245,158,11,0.44)" font-family="monospace">μ₃</text>
+        </svg>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M3.5 6.5l5.5 5.5 5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
       <div class="container">
         <div class="hero-grid">
           <p class="section-label">Code, Software, Resources</p>
