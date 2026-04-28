@@ -1,0 +1,2044 @@
+[
+  {
+    "name": "A. Gilad Kusne",
+    "emails": [
+      "aaron.kusne@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Aaron Michelson",
+    "emails": [
+      "amichelson@bnl.gov"
+    ],
+    "institutions": [
+      "Brookhaven National Lab"
+    ]
+  },
+  {
+    "name": "Abhishek Pachauri",
+    "emails": [
+      "abhishek.pachauri@utah.edu"
+    ],
+    "institutions": [
+      "University of Utah"
+    ]
+  },
+  {
+    "name": "Ai Kagawa",
+    "emails": [
+      "aik@bnl.gov"
+    ],
+    "institutions": [
+      "Brookhaven National Lab"
+    ]
+  },
+  {
+    "name": "Aldair Gongora",
+    "emails": [
+      "agongora@bu.edu"
+    ],
+    "institutions": [
+      "Boston University"
+    ]
+  },
+  {
+    "name": "Alec Sandy",
+    "emails": [
+      "asandy@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Alexander Landauer",
+    "emails": [
+      "landauer@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Andreia Filipa Almeida",
+    "emails": [
+      "falmeida@ff.ulisboa.pt"
+    ],
+    "institutions": [
+      "University of Lisbon"
+    ]
+  },
+  {
+    "name": "Andy Smith",
+    "emails": [
+      "andrew.smith@diamond.ac.uk"
+    ],
+    "institutions": [
+      "Diamond Light Source Ltd"
+    ]
+  },
+  {
+    "name": "Ang Li",
+    "emails": [
+      "ang.li@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Lab"
+    ]
+  },
+  {
+    "name": "Ankita Shukla",
+    "emails": [
+      "Ankita.Shukla@asu.edu"
+    ],
+    "institutions": [
+      "Arizona State University"
+    ]
+  },
+  {
+    "name": "Antonio Cardone",
+    "emails": [
+      "toniocar@hotmail.com",
+      "antonio.cardone@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Anudha Mittal",
+    "emails": [
+      "Anudham@gmail.com"
+    ],
+    "institutions": []
+  },
+  {
+    "name": "Arpan Biswas",
+    "emails": [
+      "arpanbiswas52@gmail.com"
+    ],
+    "institutions": [
+      "Oak Ridge National Lab"
+    ]
+  },
+  {
+    "name": "Artur Schweidtmann",
+    "emails": [
+      "a.schweidtmann@tudelft.nl"
+    ],
+    "institutions": [
+      "TU Delft"
+    ]
+  },
+  {
+    "name": "Arun Persaud",
+    "emails": [
+      "apersaud@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Arun Sathanur",
+    "emails": [
+      "arun.sathanur@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Laboratory"
+    ]
+  },
+  {
+    "name": "Asmita Jana",
+    "emails": [
+      "ajana@lbl.gov"
+    ],
+    "institutions": [
+      "Berkeley lab"
+    ]
+  },
+  {
+    "name": "B. Reeja Jayan",
+    "emails": [
+      "breeja@cmu.edu"
+    ],
+    "institutions": [
+      "Carnegie Mellon University"
+    ]
+  },
+  {
+    "name": "Bappaditya Dey",
+    "emails": [
+      "bappaditya.dey@imec.be"
+    ],
+    "institutions": [
+      "IMEC"
+    ]
+  },
+  {
+    "name": "Bashir Mohammed",
+    "emails": [
+      "BMOHAMMED@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Benji Maruyama",
+    "emails": [
+      "benjimaruyama@gmail.com"
+    ],
+    "institutions": [
+      "Air Force Research Laboratory"
+    ]
+  },
+  {
+    "name": "Bobby Sumpter",
+    "emails": [
+      "sumpterbg@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Bret Peterson",
+    "emails": [
+      "bretpeterson@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Byung-Jun Yoon",
+    "emails": [
+      "bjyoon@tamu.edu"
+    ],
+    "institutions": [
+      "Texas A&M University / Brookhaven National Laboratory"
+    ]
+  },
+  {
+    "name": "Carolin Sutter-Fella",
+    "emails": [
+      "csutterfella@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Charles Andersen",
+    "emails": [
+      "candersen@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Chris Wolverton",
+    "emails": [
+      "c-wolverton@northwestern.edu"
+    ],
+    "institutions": [
+      "Northwestern University"
+    ]
+  },
+  {
+    "name": "Christian Engelmann",
+    "emails": [
+      "engelmannc@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Christina Schenk",
+    "emails": [
+      "cschenk@bcamath.org"
+    ],
+    "institutions": [
+      "Basque Center for Applied Mathematics"
+    ]
+  },
+  {
+    "name": "Christine Sweeney",
+    "emails": [
+      "cahrens@lanl.gov"
+    ],
+    "institutions": [
+      "Los Alamos National Laboratory"
+    ]
+  },
+  {
+    "name": "Christopher Haines",
+    "emails": [
+      "christopher.d.haines2.civ@mail.mil"
+    ],
+    "institutions": [
+      "US Army DEVCOM-ARL"
+    ]
+  },
+  {
+    "name": "Christopher Langmead",
+    "emails": [
+      "clangmea@amgen.com"
+    ],
+    "institutions": [
+      "Amgen"
+    ]
+  },
+  {
+    "name": "Christopher Williams",
+    "emails": [
+      "christopher.williams@colorado.edu"
+    ],
+    "institutions": [
+      "University of Colorado Boulder"
+    ]
+  },
+  {
+    "name": "Claudia Schillings",
+    "emails": [
+      "c.schillings@uni-mannheim.de"
+    ],
+    "institutions": [
+      "University of Mannheim"
+    ]
+  },
+  {
+    "name": "Dani Ushizima",
+    "emails": [
+      "dushizima@lbl.gov"
+    ],
+    "institutions": [
+      "LBNL"
+    ]
+  },
+  {
+    "name": "David Hoogerheide",
+    "emails": [
+      "david.hoogerheide@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Derek Mariscal",
+    "emails": [
+      "mariscal2@llnl.gov"
+    ],
+    "institutions": [
+      "Lawrence Livermore National Lab"
+    ]
+  },
+  {
+    "name": "Dexter Antonio",
+    "emails": [
+      "dexter.d.antonio@gmail.com",
+      "ddantonio@ucdavis.edu"
+    ],
+    "institutions": [
+      "Machine Learning Scientist at Herophilus",
+      "UC Davis"
+    ]
+  },
+  {
+    "name": "Dhananjay Bhaskar",
+    "emails": [
+      "dhananjay.bhaskar@yale.edu"
+    ],
+    "institutions": [
+      "Yale University"
+    ]
+  },
+  {
+    "name": "Donglai Wei",
+    "emails": [
+      "donglai.wei@bc.edu"
+    ],
+    "institutions": [
+      "Boston College"
+    ]
+  },
+  {
+    "name": "Drew M. Glenna",
+    "emails": [
+      "glen3534@vandals.uidaho.edu"
+    ],
+    "institutions": [
+      "University of Idaho"
+    ]
+  },
+  {
+    "name": "Dula Parkinson",
+    "emails": [
+      "dyparkinson@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Edward Barnard",
+    "emails": [
+      "esbarnard@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Eliane Lessner",
+    "emails": [
+      "eliane.lessner@science.doe.gov"
+    ],
+    "institutions": [
+      "SUFD/BES /Office of Sciences"
+    ]
+  },
+  {
+    "name": "Elke Arenholz",
+    "emails": [
+      "elkearenholz@gmail.com"
+    ],
+    "institutions": [
+      "PNNL"
+    ]
+  },
+  {
+    "name": "Emily Barnes",
+    "emails": [
+      "barnes_emily@berkeley.edu"
+    ],
+    "institutions": [
+      "UC Berkeley"
+    ]
+  },
+  {
+    "name": "Emory Chan",
+    "emails": [
+      "emchan@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Eric Roberts",
+    "emails": [
+      "ejroberts@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Eric Wiedner",
+    "emails": [
+      "eric.wiedner@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Laboratory"
+    ]
+  },
+  {
+    "name": "Esther Tsai",
+    "emails": [
+      "etsai@bnl.gov"
+    ],
+    "institutions": [
+      "Brookhaven National Laboratory"
+    ]
+  },
+  {
+    "name": "Ethan Crumlin",
+    "emails": [
+      "ejcrumlin@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Eva M. Campo",
+    "emails": [
+      "campostellaresearch@gmail.com"
+    ],
+    "institutions": [
+      "Campostella Research and Consulting, LLC"
+    ]
+  },
+  {
+    "name": "Eva M. Herzig",
+    "emails": [
+      "eva.herzig@uni-bayreuth.de"
+    ],
+    "institutions": [
+      "Universität Bayreuth"
+    ]
+  },
+  {
+    "name": "Fang Lu",
+    "emails": [
+      "flu@bnl.gov"
+    ],
+    "institutions": [
+      "Brookhaven National Laboratory"
+    ]
+  },
+  {
+    "name": "Filippos Tourlomousis",
+    "emails": [
+      "filippos.tourlo@cba.mit.edu",
+      "filippos@superlabs.eu"
+    ],
+    "institutions": [
+      "MIT"
+    ]
+  },
+  {
+    "name": "Frank Heinrich",
+    "emails": [
+      "fheinrich@cmu.edu",
+      "frank.heinrich@nist.gov"
+    ],
+    "institutions": [
+      "Carnegie Mellon University",
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Gaurav Chopra",
+    "emails": [
+      "gchopra@purdue.edu"
+    ],
+    "institutions": [
+      "Purdue University"
+    ]
+  },
+  {
+    "name": "Gregory Doerk",
+    "emails": [
+      "gdoerk@bnl.gov"
+    ],
+    "institutions": [
+      "Brookhaven National Laboratory"
+    ]
+  },
+  {
+    "name": "Guillaume Freychet",
+    "emails": [
+      "gfreychet@bnl.gov"
+    ],
+    "institutions": [
+      "Brookhaven National Laboratory"
+    ]
+  },
+  {
+    "name": "Gyorgy Babnigg",
+    "emails": [
+      "gbabnigg@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Haegyum Kim",
+    "emails": [
+      "haegyumkim@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Hannah Parraga",
+    "emails": [
+      "hparraga@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Lab"
+    ]
+  },
+  {
+    "name": "Hannah Ransom",
+    "emails": [
+      "hransom@lanl.gov"
+    ],
+    "institutions": [
+      "Los Alamos National Laboratory"
+    ]
+  },
+  {
+    "name": "Haruko Wainwright",
+    "emails": [
+      "hmwainwright@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Hector Garcia Martin",
+    "emails": [
+      "hgmartin@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Hereld Mark",
+    "emails": [
+      "hereld@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Hilmar Koerner",
+    "emails": [
+      "hilmar.koerner.1@afrl.af.mil"
+    ],
+    "institutions": [
+      "Air Force Research Laboratory"
+    ]
+  },
+  {
+    "name": "Hoi-Ying Holman",
+    "emails": [
+      "hyholman@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Hongyi Lin",
+    "emails": [
+      "hongyili@andrew.cmu.edu"
+    ],
+    "institutions": [
+      "Carnegie Mellon University"
+    ]
+  },
+  {
+    "name": "Horst D Simon",
+    "emails": [
+      "hdsimon@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Huangqingbo (Paul) Sun",
+    "emails": [
+      "huangqis@andrew.cmu.edu"
+    ],
+    "institutions": [
+      "Carnegie Mellon University"
+    ]
+  },
+  {
+    "name": "Ian Foster",
+    "emails": [
+      "foster@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Jacob Nye",
+    "emails": [
+      "jn2515@columbia.edu"
+    ],
+    "institutions": [
+      "Columbia University"
+    ]
+  },
+  {
+    "name": "James Warren",
+    "emails": [
+      "james.warren@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Jan Michael Carrillo",
+    "emails": [
+      "carrillojy@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Jana Thayer",
+    "emails": [
+      "jana@slac.stanford.edu"
+    ],
+    "institutions": [
+      "SLAC"
+    ]
+  },
+  {
+    "name": "Jaron Thompson",
+    "emails": [
+      "jcthompson5@wisc.edu"
+    ],
+    "institutions": [
+      "University of Wisconsin"
+    ]
+  },
+  {
+    "name": "Jaydeep Bardhan",
+    "emails": [
+      "jaydeep.bardhan@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Lab"
+    ]
+  },
+  {
+    "name": "Jeff Urban",
+    "emails": [
+      "jjurban@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Jeyan Thiyagalingam",
+    "emails": [
+      "t.jeyan@stfc.ac.uk"
+    ],
+    "institutions": [
+      "Rutherford Appleton Laboratory"
+    ]
+  },
+  {
+    "name": "Jin qian",
+    "emails": [
+      "jqian2@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Jinghua Guo",
+    "emails": [
+      "jguo@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Johan van der Westhuizen",
+    "emails": [
+      "carljohanvdw@gmail.com"
+    ],
+    "institutions": [
+      "CSIR"
+    ]
+  },
+  {
+    "name": "Johannes Mahl",
+    "emails": [
+      "jmahl@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Laboratory"
+    ]
+  },
+  {
+    "name": "Jordan M Wick",
+    "emails": [
+      "jordmanwick@gmail.com"
+    ],
+    "institutions": [
+      "Waymo"
+    ]
+  },
+  {
+    "name": "Jose Lugo-Martinez",
+    "emails": [
+      "joslug@gmail.com"
+    ],
+    "institutions": [
+      "Carnegie Mellon University"
+    ]
+  },
+  {
+    "name": "Josh Kangas",
+    "emails": [
+      "jkangas@andrew.cmu.edu"
+    ],
+    "institutions": [
+      "Carnegie Mellon University"
+    ]
+  },
+  {
+    "name": "Joshua Schrier",
+    "emails": [
+      "jschrier@fordham.edu"
+    ],
+    "institutions": [
+      "Fordham University"
+    ]
+  },
+  {
+    "name": "Juliane Mueller",
+    "emails": [
+      "JulianeMueller@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Karthik Duraisamy",
+    "emails": [
+      "kdur@umich.edu"
+    ],
+    "institutions": [
+      "University of Michigan"
+    ]
+  },
+  {
+    "name": "Katherine Evans",
+    "emails": [
+      "evanskj@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Katherine Jungjohann",
+    "emails": [
+      "kljungj@sandia.gov"
+    ],
+    "institutions": [
+      "Sandia National Laboratories"
+    ]
+  },
+  {
+    "name": "Kedar Hippalgaonkar",
+    "emails": [
+      "kedar@ntu.edu.sg"
+    ],
+    "institutions": [
+      "Nanyang Technological University"
+    ]
+  },
+  {
+    "name": "Keith A. Brown",
+    "emails": [
+      "brownka@bu.edu"
+    ],
+    "institutions": [
+      "Boston University"
+    ]
+  },
+  {
+    "name": "Keith Butler",
+    "emails": [
+      "keith.butler@stfc.ac.uk"
+    ],
+    "institutions": [
+      "Rutherford Appleton Laboratory"
+    ]
+  },
+  {
+    "name": "Kelsey Snapp",
+    "emails": [
+      "ksnapp@bu.edu"
+    ],
+    "institutions": [
+      "Boston University"
+    ]
+  },
+  {
+    "name": "Kevin Jablonka",
+    "emails": [
+      "kevin.jablonka@epfl.ch"
+    ],
+    "institutions": [
+      "EPFL"
+    ]
+  },
+  {
+    "name": "Kevin Yager",
+    "emails": [
+      "kyager@bnl.gov"
+    ],
+    "institutions": [
+      "Brookhaven National Lab"
+    ]
+  },
+  {
+    "name": "Kobi Felton",
+    "emails": [
+      "kobi.c.f@gmail.com"
+    ],
+    "institutions": [
+      "University of Cambridge"
+    ]
+  },
+  {
+    "name": "Kristof Toth",
+    "emails": [
+      "kristof.toth@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Kristofer Reyes",
+    "emails": [
+      "kreyes3@buffalo.edu"
+    ],
+    "institutions": [
+      "University at Buffalo"
+    ]
+  },
+  {
+    "name": "Leanne Friedrich",
+    "emails": [
+      "leanne.friedrich@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Liang Chen",
+    "emails": [
+      "lchen2@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Lianyi Chen",
+    "emails": [
+      "lianyi.chen@wisc.edu"
+    ],
+    "institutions": [
+      "University of Wisconsin-Madison"
+    ]
+  },
+  {
+    "name": "Linda Beverly",
+    "emails": [
+      "lbeverly@horizon.csueastbay.edu"
+    ],
+    "institutions": [
+      "Lawrence Livermore National Lab"
+    ]
+  },
+  {
+    "name": "Linda Hung",
+    "emails": [
+      "linda.hung@tri.global"
+    ],
+    "institutions": [
+      "Toyota Research Institute"
+    ]
+  },
+  {
+    "name": "Ling Lan",
+    "emails": [
+      "ll3350@columbia.edu"
+    ],
+    "institutions": [
+      "Columbia University"
+    ]
+  },
+  {
+    "name": "Linus Pithan",
+    "emails": [
+      "linus.pithan@gmail.com"
+    ],
+    "institutions": [
+      "DESY, Uni Tübingen, DAPHNE"
+    ]
+  },
+  {
+    "name": "Liu Shannan",
+    "emails": [
+      "shannan.liu@gmail.com"
+    ],
+    "institutions": [
+      "University of California Los Angeles"
+    ]
+  },
+  {
+    "name": "Loïc Roch",
+    "emails": [
+      "loic@atinary.com"
+    ],
+    "institutions": [
+      "Atinary Technologies"
+    ]
+  },
+  {
+    "name": "Luka Grbcic",
+    "emails": [
+      "lgrbcic@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Laboratory"
+    ]
+  },
+  {
+    "name": "Mahantesh M Halappanavar",
+    "emails": [
+      "hala@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Laboratory"
+    ]
+  },
+  {
+    "name": "Malachi Schram",
+    "emails": [
+      "schram@jlab.org",
+      "dr.malachi.schram@gmail.com",
+      "schram@jlab.com"
+    ],
+    "institutions": [
+      "Thomas Jefferson National Accelerator Facility",
+      "Jefferson Lab"
+    ]
+  },
+  {
+    "name": "Manuel Sosa Rivas",
+    "emails": [
+      "manuelsosar@hotmail.com"
+    ],
+    "institutions": [
+      "Independent"
+    ]
+  },
+  {
+    "name": "Marcus Noack",
+    "emails": [
+      "MarcusNoack@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Margaret Lund",
+    "emails": [
+      "lundmc@nv.doe.gov"
+    ],
+    "institutions": [
+      "Nevada National Security Site"
+    ]
+  },
+  {
+    "name": "Maria Chan",
+    "emails": [
+      "mchan@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Mariam Kiran",
+    "emails": [
+      "mkiran@es.net"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Marina Ganeva",
+    "emails": [
+      "m.ganeva@fz-juelich.de"
+    ],
+    "institutions": [
+      "Forschungszentrum Jülich"
+    ]
+  },
+  {
+    "name": "Mario Parente",
+    "emails": [
+      "m.parente@fz-juelich.de"
+    ],
+    "institutions": [
+      "Forschungszentrum Jülich"
+    ]
+  },
+  {
+    "name": "Martin Boehm",
+    "emails": [
+      "boehm@ill.fr"
+    ],
+    "institutions": [
+      "Institut Laue-Langevin"
+    ]
+  },
+  {
+    "name": "Maruti Kumar Mudunuru",
+    "emails": [
+      "maruti@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Laboratory"
+    ]
+  },
+  {
+    "name": "Masafumi Fukuto",
+    "emails": [
+      "fukuto@bnl.gov"
+    ],
+    "institutions": [
+      "Brookhaven National Lab"
+    ]
+  },
+  {
+    "name": "Mathieu Doucet",
+    "emails": [
+      "doucetm@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Matthew Carbone",
+    "emails": [
+      "mrc2215@columbia.edu"
+    ],
+    "institutions": [
+      "Columbia University"
+    ]
+  },
+  {
+    "name": "Maxim Ziatdinov",
+    "emails": [
+      "ziatdinovma@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Lab"
+    ]
+  },
+  {
+    "name": "Michael Tynes",
+    "emails": [
+      "mtynes@fordham.edu"
+    ],
+    "institutions": [
+      "Los Alamos National Laboratory"
+    ]
+  },
+  {
+    "name": "Minjoon Kouh",
+    "emails": [
+      "mkouh@drew.edu"
+    ],
+    "institutions": [
+      "Drew University"
+    ]
+  },
+  {
+    "name": "Morgan Chen",
+    "emails": [
+      "morganc@andrew.cmu.edu"
+    ],
+    "institutions": [
+      "Carnegie Mellon University"
+    ]
+  },
+  {
+    "name": "Nageswara Rao",
+    "emails": [
+      "raons@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Nam D. Nguyen",
+    "emails": [
+      "namn@cs.cmu.edu"
+    ],
+    "institutions": [
+      "Carnegie Mellon University"
+    ]
+  },
+  {
+    "name": "Nancy Washton",
+    "emails": [
+      "nancy.washton@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Laboratory"
+    ]
+  },
+  {
+    "name": "Nathan Johnson",
+    "emails": [
+      "natej@stanford.edu"
+    ],
+    "institutions": [
+      "SLAC"
+    ]
+  },
+  {
+    "name": "Neeraj Kumr",
+    "emails": [
+      "neeraj.kumar@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific northwest National laboratory"
+    ]
+  },
+  {
+    "name": "Nicholas Jose",
+    "emails": [
+      "nj278@cam.ac.uk"
+    ],
+    "institutions": [
+      "University of Cambridge"
+    ]
+  },
+  {
+    "name": "Nicholas Schwarz",
+    "emails": [
+      "nschwarz@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Lab"
+    ]
+  },
+  {
+    "name": "Nick Nelson",
+    "emails": [
+      "nick.nelson@pnnl.gov"
+    ],
+    "institutions": [
+      "PNNL"
+    ]
+  },
+  {
+    "name": "Nick Terrill",
+    "emails": [
+      "nick.terrill@diamond.ac.uk"
+    ],
+    "institutions": [
+      "Diamond Light Source"
+    ]
+  },
+  {
+    "name": "Nirmalendu Patra",
+    "emails": [
+      "nbp@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Noah Paulson",
+    "emails": [
+      "npaulson@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Nobumichi Tamura",
+    "emails": [
+      "ntamura@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Noel Bakhtian",
+    "emails": [
+      "noel@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Nong Artrith",
+    "emails": [
+      "n.artrith@uu.nl"
+    ],
+    "institutions": [
+      "Utrecht University"
+    ]
+  },
+  {
+    "name": "Olexandr Isayev",
+    "emails": [
+      "olexandr@olexandrisayev.com"
+    ],
+    "institutions": [
+      "Carnegie Mellon University"
+    ]
+  },
+  {
+    "name": "Olga Kuchar",
+    "emails": [
+      "kucharoa@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Oliver Hoidn",
+    "emails": [
+      "ohoidn@gmail.com"
+    ],
+    "institutions": [
+      "SLAC"
+    ]
+  },
+  {
+    "name": "OluFemi Omitaomu",
+    "emails": [
+      "omitaomuoa@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Omer Subasi",
+    "emails": [
+      "omer.subasi@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Laboratory"
+    ]
+  },
+  {
+    "name": "Oyinkansola Romiluyi",
+    "emails": [
+      "Oyinkansola.Romiluyi@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Paavo Penttilä",
+    "emails": [
+      "paavo.penttila@aalto.fi"
+    ],
+    "institutions": [
+      "Aalto University"
+    ]
+  },
+  {
+    "name": "Pankaj Rajak",
+    "emails": [
+      "pankajr127@gmail.com"
+    ],
+    "institutions": [
+      "Amazon"
+    ]
+  },
+  {
+    "name": "Peter Beaucage",
+    "emails": [
+      "peter.beaucage@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Peter Fraizer",
+    "emails": [
+      "pf98@cornell.edu"
+    ],
+    "institutions": [
+      "Cornell University & Uber"
+    ]
+  },
+  {
+    "name": "Petrus H Zwart",
+    "emails": [
+      "phzwart@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Philip Constantine Dinenis",
+    "emails": [
+      "p.dinenis@columbia.edu"
+    ],
+    "institutions": [
+      "Columbia University"
+    ]
+  },
+  {
+    "name": "Philipp Pelz",
+    "emails": [
+      "philipp.pelz@yahoo.de"
+    ],
+    "institutions": [
+      "UC Berkeley"
+    ]
+  },
+  {
+    "name": "Ping Yang",
+    "emails": [
+      "pyang@lanl.gov"
+    ],
+    "institutions": [
+      "Los Alamos National Laboratory"
+    ]
+  },
+  {
+    "name": "Pouyan Aras Ghaffari",
+    "emails": [
+      "pounou@biosustain.dtu.dk"
+    ],
+    "institutions": [
+      "Technical University of Denmark"
+    ]
+  },
+  {
+    "name": "Qin Wu",
+    "emails": [
+      "qinwu@bnl.gov"
+    ],
+    "institutions": [
+      "Brookhaven National Lab"
+    ]
+  },
+  {
+    "name": "Rachita Rana",
+    "emails": [
+      "racrana@ucdavis.edu"
+    ],
+    "institutions": [
+      "University of California, Davis"
+    ]
+  },
+  {
+    "name": "Rafael Vescovi",
+    "emails": [
+      "ravescovi@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Rajeev Thakur",
+    "emails": [
+      "thakur@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Raul Astudillo",
+    "emails": [
+      "ra598@cornell.edu"
+    ],
+    "institutions": [
+      "Cornell University"
+    ]
+  },
+  {
+    "name": "Raul Miranda",
+    "emails": [
+      "raul.miranda@science.doe.gov"
+    ],
+    "institutions": [
+      "US DOE"
+    ]
+  },
+  {
+    "name": "Rebekah Duke",
+    "emails": [
+      "rdu230@uky.edu"
+    ],
+    "institutions": [
+      "University of Kentucky"
+    ]
+  },
+  {
+    "name": "Rhonda Moore",
+    "emails": [
+      "Rhonda.Moore@nih.gov"
+    ],
+    "institutions": [
+      "NIH"
+    ]
+  },
+  {
+    "name": "Robert Rallo",
+    "emails": [
+      "Robert.rallo@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Laboratory"
+    ]
+  },
+  {
+    "name": "Robert Tang-Kong",
+    "emails": [
+      "roberttk@slac.stanford.edu"
+    ],
+    "institutions": [
+      "SSRL"
+    ]
+  },
+  {
+    "name": "Roger Ghanem",
+    "emails": [
+      "ghanem@usc.edu"
+    ],
+    "institutions": [
+      "University of Southern California"
+    ]
+  },
+  {
+    "name": "Rohan Dhall",
+    "emails": [
+      "rdhall@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Roland Koch",
+    "emails": [
+      "rjkoch@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Roland Müller",
+    "emails": [
+      "Roland.Mueller@helmholtz-berlin.de"
+    ],
+    "institutions": [
+      "Helmholtz-Zentrum Berlin für Materialien und Energie"
+    ]
+  },
+  {
+    "name": "Ronald J Pandolfi",
+    "emails": [
+      "ronpandolfi@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Sandeep Kumar",
+    "emails": [
+      "sandeepkumar.sssu@gmail.com"
+    ],
+    "institutions": [
+      "Basque Center for Applied Mathematics"
+    ]
+  },
+  {
+    "name": "Santanu Chaudhuri",
+    "emails": [
+      "schaudhuri@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Sara Miskovich",
+    "emails": [
+      "smiskov@slac.stanford.edu"
+    ],
+    "institutions": [
+      "SLAC"
+    ]
+  },
+  {
+    "name": "Shakti Prasad Padhy",
+    "emails": [
+      "shaktipr001@e.ntu.edu.sg"
+    ],
+    "institutions": [
+      "Nanyang Technological University"
+    ]
+  },
+  {
+    "name": "Shijing Sun",
+    "emails": [
+      "sunsj12@gmail.com"
+    ],
+    "institutions": [
+      "MIT"
+    ]
+  },
+  {
+    "name": "Shreyas Sundaram",
+    "emails": [
+      "sundara2@purdue.edu"
+    ],
+    "institutions": [
+      "Purdue University"
+    ]
+  },
+  {
+    "name": "Shuo Qian",
+    "emails": [
+      "qians@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Sonja Glavaski",
+    "emails": [
+      "sonja.glavaski@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Lab"
+    ]
+  },
+  {
+    "name": "Soumyadeep Ghosh",
+    "emails": [
+      "sghosh6@lbl.gov"
+    ],
+    "institutions": [
+      "LBNL"
+    ]
+  },
+  {
+    "name": "Steffen Weber",
+    "emails": [
+      "steffen.weber@haw-hamburg.de"
+    ],
+    "institutions": [
+      "HAW Hamburg"
+    ]
+  },
+  {
+    "name": "Stephane GORSSE",
+    "emails": [
+      "sgorsse@gmail.com"
+    ],
+    "institutions": [
+      "University of Bordeaux"
+    ]
+  },
+  {
+    "name": "Steven Spurgeon",
+    "emails": [
+      "steven.spurgeon@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Lab"
+    ]
+  },
+  {
+    "name": "Suchismita Sarker",
+    "emails": [
+      "suchismita13994@gmail.com"
+    ],
+    "institutions": [
+      "Cornell University"
+    ]
+  },
+  {
+    "name": "Suhas Somnath",
+    "emails": [
+      "somnaths@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Sumner Harris",
+    "emails": [
+      "harrissb@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Laboratory"
+    ]
+  },
+  {
+    "name": "Suren",
+    "emails": [
+      "sbyna@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Sven Leyffer",
+    "emails": [
+      "leyffer@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Talita Perciano",
+    "emails": [
+      "tperciano@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Tammy Ma",
+    "emails": [
+      "ma8@llnl.gov"
+    ],
+    "institutions": [
+      "Lawrence Livermore National Lab"
+    ]
+  },
+  {
+    "name": "Tej S Choksi",
+    "emails": [
+      "tej.choksi@ntu.edu.sg"
+    ],
+    "institutions": [
+      "Nanyang Technological University"
+    ]
+  },
+  {
+    "name": "Thiyaga Thiyagarajan",
+    "emails": [
+      "p.thiyagarajan@science.doe.gov"
+    ],
+    "institutions": [
+      "DOE-BES"
+    ]
+  },
+  {
+    "name": "Thomas Britton",
+    "emails": [
+      "tbritton@jlab.org"
+    ],
+    "institutions": [
+      "Jefferson Lab"
+    ]
+  },
+  {
+    "name": "Tijana Radivojevic",
+    "emails": [
+      "tradivojevic@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Tim Snow",
+    "emails": [
+      "tim.snow@diamond.ac.uk"
+    ],
+    "institutions": [
+      "Diamond Light Source"
+    ]
+  },
+  {
+    "name": "Todd Edwards",
+    "emails": [
+      "todd.edwards@pnnl.gov"
+    ],
+    "institutions": [
+      "PNNL"
+    ]
+  },
+  {
+    "name": "Torri Jeske",
+    "emails": [
+      "roark@jlab.org"
+    ],
+    "institutions": [
+      "Jefferson Lab"
+    ]
+  },
+  {
+    "name": "Trent Northen",
+    "emails": [
+      "trnorthen@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab/JGI"
+    ]
+  },
+  {
+    "name": "Tyler Martin",
+    "emails": [
+      "tyler.martin@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Ulyana Cubeta",
+    "emails": [
+      "ulyana.cubeta@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Uta Ruett",
+    "emails": [
+      "uruett@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Vahe Gharakhanyan",
+    "emails": [
+      "vg2471@columbia.edu"
+    ],
+    "institutions": [
+      "Columbia University"
+    ]
+  },
+  {
+    "name": "Victor Zavala",
+    "emails": [
+      "victor.zavala@wisc.edu"
+    ],
+    "institutions": [
+      "UW-Madison"
+    ]
+  },
+  {
+    "name": "Vikas Varshney",
+    "emails": [
+      "vikas.varshney.2@us.af.mil"
+    ],
+    "institutions": [
+      "Air Force Research Laboratory"
+    ]
+  },
+  {
+    "name": "Vinay Amatya",
+    "emails": [
+      "vinay.amatya@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Lab"
+    ]
+  },
+  {
+    "name": "Vinayak Bhat",
+    "emails": [
+      "vinayak18@uky.edu"
+    ],
+    "institutions": [
+      "University of Kentucky"
+    ]
+  },
+  {
+    "name": "Wendy Shaw",
+    "emails": [
+      "wendy.shaw@pnnl.gov"
+    ],
+    "institutions": [
+      "Pacific Northwest National Lab"
+    ]
+  },
+  {
+    "name": "Will Holtz",
+    "emails": [
+      "wjholtz@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "William Ratcliff",
+    "emails": [
+      "william.ratcliff@nist.gov"
+    ],
+    "institutions": [
+      "National Institute of Standards and Technology"
+    ]
+  },
+  {
+    "name": "Xiaoning Qi",
+    "emails": [
+      "xiaoning.qi@ndsu.edu"
+    ],
+    "institutions": [
+      "North Dakota State University"
+    ]
+  },
+  {
+    "name": "Xiaoning Qian",
+    "emails": [
+      "xqian@tamu.edu"
+    ],
+    "institutions": [
+      "Texas A&M; Brookhaven National Laboratory"
+    ]
+  },
+  {
+    "name": "Xingang Zhao",
+    "emails": [
+      "xingang.zhao@colorado.edu"
+    ],
+    "institutions": [
+      "Colorado University Boulder"
+    ]
+  },
+  {
+    "name": "Yan Liu",
+    "emails": [
+      "yanliu@ornl.gov"
+    ],
+    "institutions": [
+      "Oak Ridge National Lab"
+    ]
+  },
+  {
+    "name": "Ye Wang",
+    "emails": [
+      "yeyewangwang@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Lab"
+    ]
+  },
+  {
+    "name": "Yi Jiang",
+    "emails": [
+      "yjiang@anl.gov"
+    ],
+    "institutions": [
+      "Argonne National Laboratory"
+    ]
+  },
+  {
+    "name": "Yizhou Zhu",
+    "emails": [
+      "yizhou.zhu@gmail.com"
+    ],
+    "institutions": [
+      "Northwestern University"
+    ]
+  },
+  {
+    "name": "Yu-chen Karen Chen-Wiegart",
+    "emails": [
+      "Karen.Chen-Wiegart@stonybrook.edu"
+    ],
+    "institutions": [
+      "Stony Brook University"
+    ]
+  },
+  {
+    "name": "Yugang Zhang",
+    "emails": [
+      "yuzhang@bnl.gov"
+    ],
+    "institutions": [
+      "Brookhaven National Laboratory"
+    ]
+  },
+  {
+    "name": "Yuxin Wu",
+    "emails": [
+      "ywu3@lbl.gov"
+    ],
+    "institutions": [
+      "Lawrence Berkeley National Laboratory"
+    ]
+  },
+  {
+    "name": "Zachary Cosenza",
+    "emails": [
+      "cosenzazachary@gmail.com"
+    ],
+    "institutions": [
+      "University of California"
+    ]
+  },
+  {
+    "name": "Zamyla Chan",
+    "emails": [
+      "zamyla@accelerationconsortium.ai"
+    ],
+    "institutions": [
+      "University of Toronto"
+    ]
+  },
+  {
+    "name": "Zhichu Ren",
+    "emails": [
+      "zc_ren@mit.edu"
+    ],
+    "institutions": [
+      "MIT"
+    ]
+  },
+  {
+    "name": "Zhu Liang",
+    "emails": [
+      "zliang@bnl.gov",
+      "zleung9@gmail.com"
+    ],
+    "institutions": [
+      "Brookhaven National Laboratory"
+    ]
+  }
+]
